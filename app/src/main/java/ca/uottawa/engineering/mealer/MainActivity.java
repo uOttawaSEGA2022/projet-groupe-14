@@ -72,4 +72,9 @@ public class MainActivity extends AppCompatActivity {
                     });
         }
 
+        public void register(View view) {
+            Intent switchActivityIntent = new Intent(this, RegistrationPage.class);
+            startActivity(switchActivityIntent);
+        }
+
     }
