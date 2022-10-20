@@ -20,7 +20,6 @@ public class Homepage extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         String userId = mAuth.getUid();
 
-
         TextView hText = (TextView) findViewById(R.id.homepageText);
         hText.setText(String.format("You are signed in as %s", userId));
     }
