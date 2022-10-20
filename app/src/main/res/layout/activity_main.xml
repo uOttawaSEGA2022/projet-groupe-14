@@ -14,7 +14,7 @@
         android:fontFamily="@font/poppinsbold"
         android:paddingTop="100dp"
         android:text="Mealer"
-        android:textColor="#ededed"
+        android:textColor="@color/white"
         android:textSize="50dp"
         android:shadowColor="@color/text_shadow"
         android:shadowDx="5"
@@ -66,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/passwordTextEdit">
 
         <Button
-            android:id="@+id/loginButton"
+            android:id="@+id/button_chef"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -76,7 +76,7 @@
             />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/button_client"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
