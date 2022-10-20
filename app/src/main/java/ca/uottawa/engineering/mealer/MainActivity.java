@@ -43,8 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-
-    private void login(FirebaseUser user) {
+    private void login() {
         Intent switchActivityIntent = new Intent(this, Homepage.class);
         startActivity(switchActivityIntent);
         }
@@ -62,13 +61,13 @@ public class MainActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            login(user);
+                            login();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
     //                        Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
     //                                Toast.LENGTH_SHORT).show();
-                            login(null);
+                            login();
                         }
                     });
         }
