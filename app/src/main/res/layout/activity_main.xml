@@ -14,7 +14,7 @@
         android:fontFamily="@font/poppinsbold"
         android:paddingTop="100dp"
         android:text="Mealer"
-        android:textColor="#ededed"
+        android:textColor="@color/white"
         android:textSize="50dp"
         android:shadowColor="@color/text_shadow"
         android:shadowDx="5"
