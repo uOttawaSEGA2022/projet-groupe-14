@@ -4,24 +4,33 @@ import java.util.ArrayList;
 
 public class Chef extends User {
 
-    private String cheque;
+    private int cheque;
     private String description;
 
     public Chef() {
     };
 
-    public Chef(String nickname, String name, String email, String address, String cheque,
+    /**
+     * Constructor for Chef
+     * @param nickname
+     * @param name
+     * @param email
+     * @param address
+     * @param cheque
+     * @param desc
+     */
+    public Chef(String nickname, String name, String email, String address, int cheque,
                 String desc) {
         super(nickname, name, email, address);
         this.cheque = cheque;
         this.description = desc;
     }
 
-    public String getCheque() {
+    public int getCheque() {
         return cheque;
     }
 
-    public void setCheque(String cheque) {
+    public void setCheque(int cheque) {
         this.cheque = cheque;
     }
 
