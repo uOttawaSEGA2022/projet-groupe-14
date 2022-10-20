@@ -89,9 +89,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
-        android:fontFamily="@font/poppinssemibold"
+        android:fontFamily="@font/poppinsregular"
         android:text="Email:"
-        android:textSize="23dp"
+        android:textSize="20dp"
         android:paddingLeft="20dp"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/usernameTextEdit"
@@ -101,13 +101,13 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppinssemibold"
+        android:fontFamily="@font/poppinsregular"
         android:paddingLeft="20dp"
         android:text="Password:"
         android:textColor="@color/white"
-        android:textSize="23dp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/passwordTextEdit"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
