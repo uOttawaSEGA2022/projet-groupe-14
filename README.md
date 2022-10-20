@@ -1,8 +1,12 @@
-# projet-groupe-14
+# Mealer
 
-Modification.
+### ***Group 14***
 
-Modification 2
+Fonctionnalités actuelles:
+- Login (Client, Chef, Admin)
+- Register (Client, Chef)
 
-Modification 3
-
+Pages:
+- Login page
+- Home page
+- Registration page (home, client, chef)
