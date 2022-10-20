@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrationPage"
+    android:background="#7361ff">
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:background="#031636"
+        android:orientation="vertical"
+        android:paddingTop="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/nameText"
+            style="@style/basictext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="first name:" />
+
+        <EditText
+            android:id="@+id/NameEdit"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/edittext_design"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/NicknameText"
+            style="@style/basictext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Last name:" />
+
+        <EditText
+            android:id="@+id/NicknameEdit"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/edittext_design"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/EmailText"
+            style="@style/basictext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email:" />
+
+        <EditText
+            android:id="@+id/EmailEdit"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/edittext_design"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/PassewordText"
+            style="@style/basictext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Password:" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/edittext_design"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/AdressText"
+            style="@style/basictext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Adress:" />
+
+        <EditText
+            android:id="@+id/AdressEdit"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/edittext_design"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/DescriptionText"
+            style="@style/basictext"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:text="Description:"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/DescriptionEdit"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/edittext_design"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/informationChequeText"
+            style="@style/basictext"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:text="Information de cheque:" />
+
+        <EditText
+            android:id="@+id/informationchequeEdit"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/edittext_design"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

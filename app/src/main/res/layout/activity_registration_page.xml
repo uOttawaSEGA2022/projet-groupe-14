@@ -1,137 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrationPage"
-    android:background="#7361ff">
+    tools:context=".ClientRegister"
+    android:background="#031636">
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:background="#031636"
-        android:orientation="vertical"
-        android:paddingTop="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/mealer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsbold"
+        android:paddingTop="100dp"
+        android:shadowColor="@color/text_shadow"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:text="Mealer"
+        android:textColor="#ededed"
+        android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/nameText"
-            style="@style/basictext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="first name:" />
+    <TextView
+        android:id="@+id/CvvText"
+        android:layout_width="104dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="148dp"
+        android:text="Register as:"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mealer" />
 
-        <EditText
-            android:id="@+id/NameEdit"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="20dp"
-            android:background="@drawable/edittext_design"
-            android:ems="10"
-            android:inputType="textPersonName" />
+    <Button
+        android:id="@+id/button_client"
+        android:layout_width="116dp"
+        android:layout_height="60dp"
+        android:layout_weight="1"
+        android:backgroundTint="#5AAAE7"
+        android:onClick="registerAsClient"
+        android:text="Client"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_chef"
 
-        <TextView
-            android:id="@+id/NicknameText"
-            style="@style/basictext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Last name:" />
+        />
 
-        <EditText
-            android:id="@+id/NicknameEdit"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="20dp"
-            android:background="@drawable/edittext_design"
-            android:inputType="textPersonName" />
 
-        <TextView
-            android:id="@+id/EmailText"
-            style="@style/basictext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Email:" />
+    <Button
+        android:id="@+id/button_chef"
+        android:layout_width="116dp"
+        android:layout_height="60dp"
+        android:layout_weight="1"
+        android:backgroundTint="#5aabe8"
+        android:onClick="registerAsChef"
+        android:text="Chef"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CvvText"
+        />
 
-        <EditText
-            android:id="@+id/EmailEdit"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="20dp"
-            android:background="@drawable/edittext_design"
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/PassewordText"
-            style="@style/basictext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Password:" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="20dp"
-            android:background="@drawable/edittext_design"
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/AdressText"
-            style="@style/basictext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Adress:" />
-
-        <EditText
-            android:id="@+id/AdressEdit"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="20dp"
-            android:background="@drawable/edittext_design"
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/DescriptionText"
-            style="@style/basictext"
-            android:layout_width="match_parent"
-            android:layout_height="32dp"
-            android:text="Description:"
-            android:textColor="@color/white" />
-
-        <EditText
-            android:id="@+id/DescriptionEdit"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="20dp"
-            android:background="@drawable/edittext_design"
-            android:ems="10"
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/informationChequeText"
-            style="@style/basictext"
-            android:layout_width="match_parent"
-            android:layout_height="32dp"
-            android:text="Information de cheque:" />
-
-        <EditText
-            android:id="@+id/informationchequeEdit"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="20dp"
-            android:background="@drawable/edittext_design"
-            android:ems="10"
-            android:inputType="textPersonName" />
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -81,7 +81,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#071e30"
-            android:text="Register" />
+            android:text="Register"
+            android:onClick="register"
+            />
     </LinearLayout>
 
     <TextView
