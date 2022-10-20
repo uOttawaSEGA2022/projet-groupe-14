@@ -19,10 +19,10 @@
 
         <TextView
             android:id="@+id/nameText"
+            style="@style/basictext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="first name:"
-            style="@style/basictext"/>
+            android:text="First name:" />
 
         <EditText
             android:id="@+id/NameEdit"
@@ -68,10 +68,10 @@
 
         <TextView
             android:id="@+id/PassewordText"
+            style="@style/basictext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Password"
-            style="@style/basictext"/>
+            android:text="Password:" />
 
         <EditText
             android:layout_marginHorizontal="20dp"
@@ -83,10 +83,10 @@
 
         <TextView
             android:id="@+id/AdressText"
+            style="@style/basictext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Adress"
-            style="@style/basictext"/>
+            android:text="Adress:" />
 
         <EditText
             android:id="@+id/AdressEdit"
