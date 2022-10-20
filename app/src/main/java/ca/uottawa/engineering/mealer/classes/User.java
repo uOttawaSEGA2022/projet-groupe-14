@@ -9,6 +9,7 @@ public abstract class User {
     private String name;
     private String email;
     private String address;
+    private String role;
 
     public User() {
     }
@@ -21,11 +22,12 @@ public abstract class User {
      * @param email
      * @param address
      */
-    public User(String nickname, String name, String email, String address) {
+    public User(String nickname, String name, String email, String address, String role) {
         this.nickname = nickname;
         this.name = name;
         this.email = email;
         this.address = address;
+        this.role = role;
     }
 
     // Getters and Setters
@@ -61,4 +63,11 @@ public abstract class User {
         this.address = address;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 }

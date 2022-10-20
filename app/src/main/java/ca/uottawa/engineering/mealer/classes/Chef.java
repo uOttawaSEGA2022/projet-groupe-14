@@ -19,9 +19,9 @@ public class Chef extends User {
      * @param cheque
      * @param desc
      */
-    public Chef(String nickname, String name, String email, String address, int cheque,
+    public Chef(String nickname, String name, String email, String address, String role, int cheque,
                 String desc) {
-        super(nickname, name, email, address);
+        super(nickname, name, email, address, role);
         this.cheque = cheque;
         this.description = desc;
     }
