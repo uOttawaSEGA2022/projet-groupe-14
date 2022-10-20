@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/usernameTextEdit"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginTop="100dp"
@@ -38,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/mealer" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/passwordTextEdit"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
@@ -46,11 +46,11 @@
         android:drawableStart="@drawable/ic_lock"
         android:ems="12"
         android:hint="Password"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:textSize="23sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/usernameTextEdit" />
 
     <LinearLayout
         android:layout_width="409dp"
@@ -60,15 +60,16 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2">
+        app:layout_constraintTop_toBottomOf="@+id/passwordTextEdit">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/loginButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#5aabe8"
             android:text="Login"
+            android:onClick="loginUser"
             />
 
         <Button
@@ -90,7 +91,7 @@
         android:textSize="23dp"
         android:paddingLeft="20dp"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/usernameTextEdit"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -99,10 +100,10 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinsbold"
         android:paddingLeft="20dp"
-        android:text="Passeword:"
+        android:text="Password:"
         android:textColor="@color/white"
         android:textSize="23dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
+        app:layout_constraintBottom_toTopOf="@+id/passwordTextEdit"
         app:layout_constraintStart_toStartOf="parent" />
 
 

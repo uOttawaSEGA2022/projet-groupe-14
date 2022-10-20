@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "269293817826",
+    "project_id": "mealer-ca1aa",
+    "storage_bucket": "mealer-ca1aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:269293817826:android:24d20e237ceed17819f3bb",
+        "android_client_info": {
+          "package_name": "ca.uottawa.engineering.mealer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "269293817826-1udktkug5ln4jvcs48puragmq23v1bir.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-G_EokUI6jyw8T-QTkbAkIBDPxa7_G6Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "269293817826-1udktkug5ln4jvcs48puragmq23v1bir.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
