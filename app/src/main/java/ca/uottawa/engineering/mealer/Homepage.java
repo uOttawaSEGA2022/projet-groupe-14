@@ -1,11 +1,13 @@
 package ca.uottawa.engineering.mealer;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -40,7 +42,7 @@ public class Homepage extends AppCompatActivity {
                     if (document.exists()) {
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                         String role = document.get("role").toString();
-                        hText.setText(String.format("You are signed in as %s", role));
+                        hText.setText(String.format("You are signed in as %s.", role));
 
                     } else {
                         Log.d(TAG, "No such document");
@@ -51,9 +53,13 @@ public class Homepage extends AppCompatActivity {
             }
         });
 
+    }
 
-
-
+    public void logoutUser(View view) {
+        mAuth = FirebaseAuth.getInstance();
+        mAuth.signOut();
+        Intent switchActivityIntent = new Intent(this, MainActivity.class);
+        startActivity(switchActivityIntent);
     }
 
 }
