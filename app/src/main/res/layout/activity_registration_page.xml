@@ -18,14 +18,14 @@
         android:paddingTop="200dp">
 
         <TextView
-            android:id="@+id/nameText"
+            android:id="@+id/nameTextClient"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="first name:"
             style="@style/basictext"/>
 
         <EditText
-            android:id="@+id/NameEdit"
+            android:id="@+id/NameEditClient"
             android:layout_marginHorizontal="20dp"
             android:layout_width="match_parent"
             android:layout_height="30dp"
@@ -35,14 +35,14 @@
             android:background="@drawable/edittext_design"/>
 
         <TextView
-            android:id="@+id/NicknameText"
+            android:id="@+id/NicknameTextClient"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Last name:"
             style="@style/basictext"/>
 
         <EditText
-            android:id="@+id/NicknameEdit"
+            android:id="@+id/NicknameEditClient"
             android:layout_marginHorizontal="20dp"
             android:layout_width="match_parent"
             android:layout_height="30dp"
@@ -51,14 +51,14 @@
             android:background="@drawable/edittext_design"/>
 
         <TextView
-            android:id="@+id/EmailText"
+            android:id="@+id/EmailTextClient"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Email:"
             style="@style/basictext"/>
 
         <EditText
-            android:id="@+id/EmailEdit"
+            android:id="@+id/EmailEditClient"
             android:layout_marginHorizontal="20dp"
             android:layout_width="match_parent"
             android:layout_height="30dp"
@@ -67,7 +67,7 @@
             android:background="@drawable/edittext_design"/>
 
         <TextView
-            android:id="@+id/PassewordText"
+            android:id="@+id/PassewordTextClient"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Password"
@@ -82,14 +82,14 @@
             android:background="@drawable/edittext_design"/>
 
         <TextView
-            android:id="@+id/AdressText"
+            android:id="@+id/AdressTextClient"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Adress"
             style="@style/basictext"/>
 
         <EditText
-            android:id="@+id/AdressEdit"
+            android:id="@+id/AdressEditClient"
             android:layout_marginHorizontal="20dp"
             android:layout_width="match_parent"
             android:layout_height="30dp"

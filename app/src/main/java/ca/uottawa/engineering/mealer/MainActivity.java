@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
+
     private void login(FirebaseUser user) {
         Intent switchActivityIntent = new Intent(this, Homepage.class);
         startActivity(switchActivityIntent);
