@@ -45,15 +45,8 @@ dependencies {
     // TODO: Add the dependencies for Firebase products you want to use
     // When using the BoM, don't specify versions in Firebase dependencies
     implementation 'com.google.firebase:firebase-analytics'
-<<<<<<< HEAD
 
     // Add the dependency for the Firebase Authentication library
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-auth'
-=======
-<<<<<<< HEAD
->>>>>>> Added Firebase sdk and .json file
-=======
->>>>>>> a804db0128bc963c44de22f05d586fd90349743d
->>>>>>> 12fe94b7c12ac4b93b6a2c72d3b9afa9588cfc74
 }
