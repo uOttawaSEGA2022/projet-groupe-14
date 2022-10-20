@@ -3,6 +3,7 @@ package ca.uottawa.engineering.mealer;
 import static android.content.ContentValues.TAG;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -43,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
     private void login(FirebaseUser user) {
-        EditText uText = (EditText) findViewById(R.id.usernameTextEdit);
-        uText.setText("We logged in!");
+        Intent switchActivityIntent = new Intent(this, Homepage.class);
+        startActivity(switchActivityIntent);
         }
 
     public void loginUser(View view) {
