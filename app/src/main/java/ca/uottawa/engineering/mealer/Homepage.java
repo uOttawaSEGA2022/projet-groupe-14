@@ -18,10 +18,11 @@ public class Homepage extends AppCompatActivity {
         setContentView(R.layout.activity_homepage);
 
         mAuth = FirebaseAuth.getInstance();
-        String user = mAuth.getUid();
+        String userId = mAuth.getUid();
+
 
         TextView hText = (TextView) findViewById(R.id.homepageText);
-        hText.setText(String.format("You are signed in as%s", user));
+        hText.setText(String.format("You are signed in as %s", userId));
     }
 
 }
