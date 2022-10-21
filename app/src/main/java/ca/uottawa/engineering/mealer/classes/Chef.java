@@ -3,7 +3,7 @@ package ca.uottawa.engineering.mealer.classes;
 public class Chef extends User {
 
     // Currently using int for cheque, but should consider different option
-    private int cheque;
+    private String cheque;
     private String description;
 
     /**
@@ -21,7 +21,7 @@ public class Chef extends User {
      * @param cheque Cheque information
      * @param desc Description of chef
      */
-    public Chef(String nickname, String name, String email, String address, int cheque,
+    public Chef(String nickname, String name, String email, String address, String cheque,
                 String desc) {
         super(nickname, name, email, address, "chef"); // hardcoded chef role
         this.cheque = cheque;
@@ -29,11 +29,11 @@ public class Chef extends User {
     }
 
     // TODO: see if it's possible to replace this with an image
-    public int getCheque() {
+    public String getCheque() {
         return cheque;
     }
 
-    public void setCheque(int cheque) {
+    public void setCheque(String cheque) {
         this.cheque = cheque;
     }
 

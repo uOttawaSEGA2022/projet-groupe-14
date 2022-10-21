@@ -44,7 +44,7 @@ public class ChefRegistration extends AppCompatActivity {
         String email = emailT.getText().toString();
         String password = passT.getText().toString();
         String address = addrT.getText().toString();
-        int cheque = Integer.parseInt(chequeT.getText().toString());
+        String cheque = chequeT.getText().toString();
         String description = descT.getText().toString();
 
         Log.d("FDB", email);

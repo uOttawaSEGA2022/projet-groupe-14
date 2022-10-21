@@ -81,4 +81,12 @@ public class ClientRegistration extends AppCompatActivity {
             startActivity(switchActivityIntent);
         }
     }
+
+    public String[] validateAndReturnInput() {
+        return null;
+    }
+
+    public void createUser(String[] input) {
+
+    }
 }
