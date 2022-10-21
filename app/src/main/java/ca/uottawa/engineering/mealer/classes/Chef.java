@@ -1,31 +1,34 @@
 package ca.uottawa.engineering.mealer.classes;
 
-import java.util.ArrayList;
-
 public class Chef extends User {
 
+    // Currently using int for cheque, but should consider different option
     private int cheque;
     private String description;
 
+    /**
+     * Empty constructor used for Firebase. (DON'T USE, USE FULL CONSTRUCTOR!).
+     */
     public Chef() {
     };
 
     /**
      * Constructor for Chef
-     * @param nickname
-     * @param name
-     * @param email
-     * @param address
-     * @param cheque
-     * @param desc
+     * @param nickname Nickname of chef
+     * @param name Name of chef
+     * @param email Email address of chef
+     * @param address Pick-up address of chef
+     * @param cheque Cheque information
+     * @param desc Description of chef
      */
-    public Chef(String nickname, String name, String email, String address, String role, int cheque,
+    public Chef(String nickname, String name, String email, String address, int cheque,
                 String desc) {
-        super(nickname, name, email, address, role);
+        super(nickname, name, email, address, "chef"); // hardcoded chef role
         this.cheque = cheque;
         this.description = desc;
     }
 
+    // TODO: see if it's possible to replace this with an image
     public int getCheque() {
         return cheque;
     }

@@ -19,7 +19,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Homepage extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private final String TAG = "Test";
 
@@ -28,26 +28,27 @@ public class Homepage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
-        mAuth = FirebaseAuth.getInstance();
-        String userId = mAuth.getUid();
+        String userId = mAuth.getUid(); // Get user ID
 
         TextView hText = (TextView) findViewById(R.id.homepageText);
 
-        DocumentReference docRef = db.collection("users").document(userId);
+        // TODO: put the retrieval process behind a reusable method/class?
+        DocumentReference docRef = db.collection("users").document(userId); // Retrieve user information by user ID
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                         String role = document.get("role").toString();
                         hText.setText(String.format("You are signed in as %s.", role));
 
                     } else {
+                        // TODO: handle when UID does not exist
                         Log.d(TAG, "No such document");
                     }
                 } else {
+                    // TODO: handle when task is unsuccessful (not retrieved from firebase)
                     Log.d(TAG, "get failed with ", task.getException());
                 }
             }
@@ -55,8 +56,8 @@ public class Homepage extends AppCompatActivity {
 
     }
 
+    // Logout button press
     public void logoutUser(View view) {
-        mAuth = FirebaseAuth.getInstance();
         mAuth.signOut();
         Intent switchActivityIntent = new Intent(this, MainActivity.class);
         startActivity(switchActivityIntent);

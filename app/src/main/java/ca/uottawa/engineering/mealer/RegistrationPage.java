@@ -15,11 +15,13 @@ public class RegistrationPage extends AppCompatActivity {
         setContentView(R.layout.activity_registration_page);
     }
 
+    // Chef button press
     public void registerAsChef(View view) {
         Intent switchActivityIntent = new Intent(this, ChefRegistration.class);
         startActivity(switchActivityIntent);
     }
 
+    // Client button press
     public void registerAsClient(View view) {
         Intent switchActivityIntent = new Intent(this, ClientRegistration.class);
         startActivity(switchActivityIntent);

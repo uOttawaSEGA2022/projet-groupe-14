@@ -13,7 +13,6 @@ public class ChefRegistration extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private final String role = "chef";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
