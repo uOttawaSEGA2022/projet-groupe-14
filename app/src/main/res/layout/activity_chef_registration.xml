@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrationPage"
+    tools:context=".ChefRegistration"
     android:background="#7361ff">
 
     <LinearLayout
@@ -132,6 +132,13 @@
             android:background="@drawable/edittext_design"
             android:ems="10"
             android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="register"
+            android:text="Register" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

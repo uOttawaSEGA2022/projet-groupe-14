@@ -24,4 +24,5 @@ public class RegistrationPage extends AppCompatActivity {
         Intent switchActivityIntent = new Intent(this, ClientRegistration.class);
         startActivity(switchActivityIntent);
     }
+
 }

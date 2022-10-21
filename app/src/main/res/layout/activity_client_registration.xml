@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrationPage"
+    tools:context=".ClientRegistration"
     android:background="#7361ff">
 
     <LinearLayout
@@ -139,7 +139,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="37dp"
             android:orientation="horizontal">
 
             <EditText
@@ -160,6 +160,13 @@
                 android:background="@drawable/edittext_design"
                 android:inputType="number" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="registerclick"
+            android:text="Register" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
