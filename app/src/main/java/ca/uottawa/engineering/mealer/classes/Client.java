@@ -2,12 +2,24 @@ package ca.uottawa.engineering.mealer.classes;
 
 public class Client extends User {
 
+    // How much info required for card?
     private int cardInfo;
 
+    /**
+     * Empty constructor used for Firebase. (DON'T USE, USE FULL CONSTRUCTOR!).
+     */
     public Client() {}
 
-    public Client(String nickname, String name, String email, String address, String role, int cardInfo) {
-        super(nickname, name, email, address, role);
+    /**
+     * Constructor for client
+     * @param nickname Nickname of client
+     * @param name Name of client
+     * @param email Email address of client
+     * @param address Address of client
+     * @param cardInfo Card info of client
+     */
+    public Client(String nickname, String name, String email, String address, int cardInfo) {
+        super(nickname, name, email, address, "client"); // hardcoded role
         this.cardInfo = cardInfo;
     }
 
