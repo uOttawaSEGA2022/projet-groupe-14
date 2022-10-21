@@ -23,7 +23,7 @@
             style="@style/basictext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="first name:" />
+            android:text="Name:" />
 
         <EditText
             android:id="@+id/NameEdit"
@@ -40,7 +40,7 @@
             style="@style/basictext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Last name:" />
+            android:text="Nickname:" />
 
         <EditText
             android:id="@+id/NicknameEdit"
@@ -81,7 +81,8 @@
             android:layout_gravity="center"
             android:layout_marginHorizontal="20dp"
             android:background="@drawable/edittext_design"
-            android:inputType="textPersonName" />
+            android:inputType="textPassword"
+            />
 
         <TextView
             android:id="@+id/AdressText"
