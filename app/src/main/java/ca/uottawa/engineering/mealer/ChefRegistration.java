@@ -24,6 +24,8 @@ public class ChefRegistration extends AppCompatActivity {
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+    private final String TAG = "chefReg";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +49,8 @@ public class ChefRegistration extends AppCompatActivity {
         String cheque = chequeT.getText().toString();
         String description = descT.getText().toString();
 
-        Log.d("FDB", email);
-        Log.d("FDB", password);
+        Log.d(TAG, email);
+        Log.d(TAG, password);
 
         mAuth.createUserWithEmailAndPassword(email, password) // Create new user
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -58,15 +60,15 @@ public class ChefRegistration extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             mAuth = FirebaseAuth.getInstance();
                             String userID = mAuth.getUid();
-                            Log.d("FDB", userID);
+                            Log.d(TAG, userID);
 
                             Chef chef = new Chef(nickname, name, email, address, cheque, description);
                             db.collection("users").document(userID).set(chef); // Add to database
-                            Log.d("FDB", "Chef created and added.");
+                            Log.d(TAG, "Chef created and added.");
 
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.d("FDB", "Chef not created.");
+                            Log.d(TAG, "Chef not created.");
                             // TODO: add message to user
                         }
                     }

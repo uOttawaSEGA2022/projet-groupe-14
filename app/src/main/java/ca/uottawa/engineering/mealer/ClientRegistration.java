@@ -25,6 +25,8 @@ public class ClientRegistration extends AppCompatActivity {
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+    private final String TAG = "clientReg";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +52,8 @@ public class ClientRegistration extends AppCompatActivity {
         String cardExp = cardExpT.getText().toString();
         String cardCVV = cardCVVT.getText().toString();
 
-        Log.d("FDB", email);
-        Log.d("FDB", password);
+        Log.d(TAG, email);
+        Log.d(TAG, password);
 
         mAuth.createUserWithEmailAndPassword(email, password) // Create new user
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -61,15 +63,15 @@ public class ClientRegistration extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             mAuth = FirebaseAuth.getInstance();
                             String userID = mAuth.getUid();
-                            Log.d("FDB", userID);
+                            Log.d(TAG, userID);
 
                             Client client = new Client(nickname, name, email, address, cardNum, cardExp, cardCVV);
                             db.collection("users").document(userID).set(client); // Add to database
-                            Log.d("FDB", "client created and added.");
+                            Log.d(TAG, "client created and added.");
 
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.d("FDB", "client not created.");
+                            Log.d(TAG, "client not created.");
                             // TODO: add message to user
                         }
                     }

@@ -21,7 +21,7 @@ public class Homepage extends AppCompatActivity {
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private final String TAG = "Test";
+    private final String TAG = "homepage";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
