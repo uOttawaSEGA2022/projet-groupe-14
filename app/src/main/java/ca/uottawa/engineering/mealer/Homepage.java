@@ -41,7 +41,8 @@ public class Homepage extends AppCompatActivity {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         String role = document.get("role").toString();
-                        hText.setText(String.format("You are signed in as %s.", role));
+                        String name = document.get("name").toString();
+                        hText.setText(String.format("Hello %s!\nYou are signed in as %s.", name, role));
 
                     } else {
                         // TODO: handle when UID does not exist
