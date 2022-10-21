@@ -16,6 +16,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.concurrent.TimeUnit;
+
 import ca.uottawa.engineering.mealer.classes.Client;
 
 public class ClientRegistration extends AppCompatActivity {
@@ -29,7 +31,7 @@ public class ClientRegistration extends AppCompatActivity {
         setContentView(R.layout.activity_client_registration);
     }
 
-    public void registerclick(View view) {
+    public void registerclick(View view) throws InterruptedException {
         EditText nickT = (EditText)findViewById(R.id.NicknameEditClient);
         EditText nameT = (EditText)findViewById(R.id.NameEditClient);
         EditText emailT = (EditText)findViewById(R.id.EmailEditClient);
@@ -73,6 +75,7 @@ public class ClientRegistration extends AppCompatActivity {
                     }
                 });
 
+        TimeUnit.SECONDS.sleep(1); // Sometimes it goes too fast and the database doesn't update fast enough
         if (mAuth.getUid() != null) {
             Intent switchActivityIntent = new Intent(this, Homepage.class);
             startActivity(switchActivityIntent);
