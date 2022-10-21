@@ -20,8 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
-    private Button loginButton;
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
 //    // Check if user is signed in already
 //    @Override
@@ -39,15 +38,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mAuth = FirebaseAuth.getInstance();
 
-            }
+        }
 
     private void login() {
         Intent switchActivityIntent = new Intent(this, Homepage.class);
         startActivity(switchActivityIntent);
         }
 
+        // Login button press
     public void loginUser(View view) {
             EditText uText = (EditText) findViewById(R.id.usernameTextEdit);
             String username = uText.getText().toString();
@@ -59,19 +58,14 @@ public class MainActivity extends AppCompatActivity {
                     .addOnCompleteListener(this, task -> {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
                             login();
                         } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-    //                        Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
-    //                                Toast.LENGTH_SHORT).show();
-                            login();
+                            login(); // Do something with error;
                         }
                     });
         }
 
+        // Register button press
         public void register(View view) {
             Intent switchActivityIntent = new Intent(this, RegistrationPage.class);
             startActivity(switchActivityIntent);

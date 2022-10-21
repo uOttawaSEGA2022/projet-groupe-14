@@ -9,18 +9,21 @@ public abstract class User {
     private String name;
     private String email;
     private String address;
-    private String role;
+    private String role; // Either chef, client
 
+    /**
+     * Empty constructor used for Firebase. (DON'T USE, USE FULL CONSTRUCTOR!).
+     */
     public User() {
     }
 
     /**
-     * User constructor
-     *
-     * @param nickname
-     * @param name
-     * @param email
-     * @param address
+     * User constructor (CAN'T BE INITIALIZED!)
+     * @param nickname Nickname of user
+     * @param name Name of user
+     * @param email Email address of user
+     * @param address Address of user
+     * @param role Role of user. Will be automatically set by child class.
      */
     public User(String nickname, String name, String email, String address, String role) {
         this.nickname = nickname;

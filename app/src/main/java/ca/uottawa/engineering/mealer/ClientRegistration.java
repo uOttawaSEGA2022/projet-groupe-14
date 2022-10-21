@@ -14,7 +14,6 @@ public class ClientRegistration extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private final String role = "client";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
