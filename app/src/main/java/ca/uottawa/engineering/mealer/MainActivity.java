@@ -42,50 +42,85 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        }
+    }
 
     private void login() {
         Intent switchActivityIntent = new Intent(this, Homepage.class);
         startActivity(switchActivityIntent);
-        }
+    }
 
-        // Login button press
+    // Login button press
     public void loginUser(View view) {
-            EditText uText = (EditText) findViewById(R.id.usernameTextEdit);
-            EditText pText = (EditText) findViewById(R.id.passwordTextEdit);
-            try {
-                String username = uText.getText().toString();
-                String password = pText.getText().toString();
-                mAuth.signInWithEmailAndPassword(username, password)
-                        .addOnCompleteListener(this, task -> {
-                            if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                login();
-                            } else {
-                                // Do something with error;
-                                errormsgIncorrect(null);
-                            }
-                        });
-            }
-            catch (Exception e){
-                errormsgEmpty(null);
-            }
 
+        errorMessage("");
+        String[] inputs = getInput();
+        boolean valid = validateInput(inputs);
 
+        if (!valid) {
+            return;
         }
 
-        // Register button press
-        public void register(View view) {
-            Intent switchActivityIntent = new Intent(this, RegistrationPage.class);
-            startActivity(switchActivityIntent);
-        }
-        public void errormsgEmpty(View view){
-            TextView errormsg =(TextView)findViewById(R.id.errormsgmain);
-            errormsg.setText("error:one or more fields are empty");
-        }
-    public void errormsgIncorrect(View view){
-        TextView errormsg =(TextView)findViewById(R.id.errormsgmain);
-        errormsg.setText("error:Incorrect username or password");
+        String username = inputs[0];
+        String password = inputs[1];
+
+        mAuth.signInWithEmailAndPassword(username, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
+                        login();
+                    } else {
+                        // Do something with error;
+                        errorMessage("Could not login.");
+                    }
+                });
+
+
     }
 
+    // Register button press
+    public void register(View view) {
+        Intent switchActivityIntent = new Intent(this, RegistrationPage.class);
+        startActivity(switchActivityIntent);
     }
+
+    public void errorMessage(String message) {
+        TextView errormsg = (TextView) findViewById(R.id.errormsgmain);
+        errormsg.setText(message);
+    }
+
+    public boolean validateInput(String[] inputs) {
+
+        for (String input : inputs) {
+            input = input.trim();
+            if (input.isEmpty()) {
+                errorMessage("Please make sure fields aren't empty.");
+                return false;
+            }
+        }
+
+        if (!inputs[0].contains("@")) {
+            errorMessage("That is not a valid email.");
+            return false;
+        }
+        if (inputs[1].length() < 6) {
+            errorMessage("Password should be 6 characters or more.");
+            return false;
+        }
+
+        return true;
+    }
+
+    public String[] getInput() {
+
+        String[] inputs = new String[2];
+
+        EditText uText = (EditText) findViewById(R.id.usernameTextEdit);
+        EditText pText = (EditText) findViewById(R.id.passwordTextEdit);
+
+        inputs[0] = uText.getText().toString();
+        inputs[1] = pText.getText().toString();
+
+        return inputs;
+    }
+
+}
