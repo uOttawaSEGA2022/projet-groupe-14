@@ -168,5 +168,13 @@
             android:onClick="registerclick"
             android:text="Register" />
 
+        <TextView
+            android:id="@+id/errormsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/basictext"
+            android:text=""
+            android:textColor="#ff1930"/>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

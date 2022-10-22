@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,44 +42,61 @@ public class ChefRegistration extends AppCompatActivity {
         EditText chequeT = (EditText)findViewById(R.id.informationchequeEdit);
         EditText descT = (EditText)findViewById(R.id.DescriptionEdit);
 
-        String nickname = nickT.getText().toString();
-        String name = nameT.getText().toString();
-        String email = emailT.getText().toString();
-        String password = passT.getText().toString();
-        String address = addrT.getText().toString();
-        String cheque = chequeT.getText().toString();
-        String description = descT.getText().toString();
+        try {
+            String nickname = nickT.getText().toString();
+            String name = nameT.getText().toString();
+            String email = emailT.getText().toString();
+            String password = passT.getText().toString();
+            String address = addrT.getText().toString();
+            String cheque = chequeT.getText().toString();
+            String description = descT.getText().toString();
 
-        Log.d(TAG, email);
-        Log.d(TAG, password);
+            Log.d(TAG, email);
+            Log.d(TAG, password);
 
-        mAuth.createUserWithEmailAndPassword(email, password) // Create new user
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            mAuth = FirebaseAuth.getInstance();
-                            String userID = mAuth.getUid();
-                            Log.d(TAG, userID);
+            mAuth.createUserWithEmailAndPassword(email, password) // Create new user
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                mAuth = FirebaseAuth.getInstance();
+                                String userID = mAuth.getUid();
+                                Log.d(TAG, userID);
 
-                            Chef chef = new Chef(nickname, name, email, address, cheque, description);
-                            db.collection("users").document(userID).set(chef); // Add to database
-                            Log.d(TAG, "Chef created and added.");
+                                Chef chef = new Chef(nickname, name, email, address, cheque, description);
+                                db.collection("users").document(userID).set(chef); // Add to database
+                                Log.d(TAG, "Chef created and added.");
 
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.d(TAG, "Chef not created.");
-                            // TODO: add message to user
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Log.d(TAG, "Chef not created.");
+                                // TODO: add message to user
+                                errormsgEmail(null);
+                            }
                         }
-                    }
-                });
+                    });
+
+        }
+        catch (Exception e){
+            errormsgEmpty(null);
+        }
+
 
         TimeUnit.SECONDS.sleep(1); // Sometimes it goes too fast and the database doesn't update fast enough
         if (mAuth.getUid() != null) {
             Intent switchActivityIntent = new Intent(this, Homepage.class);
             startActivity(switchActivityIntent);
         }
+    }
+    public void errormsgEmpty(View view){
+        TextView errormsg =(TextView)findViewById(R.id.errormsgchef);
+        errormsg.setText("error:one or more fields are empty");
+    }
+    public void errormsgEmail(View view){
+        TextView errormsg =(TextView)findViewById(R.id.errormsgchef);
+        errormsg.setText("error:incorrect email");
+
     }
 
 
