@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.view.View;
 
 
@@ -17,6 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,20 +52,26 @@ public class MainActivity extends AppCompatActivity {
         // Login button press
     public void loginUser(View view) {
             EditText uText = (EditText) findViewById(R.id.usernameTextEdit);
-            String username = uText.getText().toString();
-
             EditText pText = (EditText) findViewById(R.id.passwordTextEdit);
-            String password = pText.getText().toString();
+            try {
+                String username = uText.getText().toString();
+                String password = pText.getText().toString();
+                mAuth.signInWithEmailAndPassword(username, password)
+                        .addOnCompleteListener(this, task -> {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                login();
+                            } else {
+                                // Do something with error;
+                                errormsgIncorrect(null);
+                            }
+                        });
+            }
+            catch (Exception e){
+                errormsgEmpty(null);
+            }
 
-            mAuth.signInWithEmailAndPassword(username, password)
-                    .addOnCompleteListener(this, task -> {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            login();
-                        } else {
-                            login(); // Do something with error;
-                        }
-                    });
+
         }
 
         // Register button press
@@ -70,5 +79,13 @@ public class MainActivity extends AppCompatActivity {
             Intent switchActivityIntent = new Intent(this, RegistrationPage.class);
             startActivity(switchActivityIntent);
         }
+        public void errormsgEmpty(View view){
+            TextView errormsg =(TextView)findViewById(R.id.errormsgmain);
+            errormsg.setText("error:one or more fields are empty");
+        }
+    public void errormsgIncorrect(View view){
+        TextView errormsg =(TextView)findViewById(R.id.errormsgmain);
+        errormsg.setText("error:Incorrect username or password");
+    }
 
     }

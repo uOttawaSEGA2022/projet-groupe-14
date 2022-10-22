@@ -56,11 +56,12 @@
         app:layout_constraintTop_toBottomOf="@+id/usernameTextEdit" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="409dp"
         android:layout_height="122dp"
         android:layout_marginTop="1dp"
-        android:padding="30dp"
         android:orientation="horizontal"
+        android:padding="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordTextEdit">
@@ -71,9 +72,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#5aabe8"
-            android:text="Login"
             android:onClick="loginUser"
-            />
+            android:text="Login" />
 
         <Button
             android:id="@+id/button_client"
@@ -81,9 +81,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#071e30"
-            android:text="Register"
             android:onClick="register"
-            />
+            android:text="Register" />
+
     </LinearLayout>
 
     <TextView
@@ -110,6 +110,18 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/passwordTextEdit"
         app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/errormsgmain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text=""
+        style="@style/basictext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:textColor="#ff1930"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
