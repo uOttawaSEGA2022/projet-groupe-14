@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Complaint {
 
-    private final Date PERMANENT_SUPENSION = new Date(9999);
+    private final Date PERMANENT_SUSPENSION = new Date(1);
 
     private final Chef chef;
 
@@ -17,7 +17,7 @@ public class Complaint {
     }
 
     public void perm_suspend() {
-        chef.setSuspension(PERMANENT_SUPENSION);
+        chef.setSuspension(PERMANENT_SUSPENSION);
     }
 
 }
