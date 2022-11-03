@@ -53,4 +53,8 @@ public class Client extends User {
     public void setCardCVV(String cardCVV) {
         this.cardCVV = cardCVV;
     }
+
+    public void complain() {
+
+    }
 }

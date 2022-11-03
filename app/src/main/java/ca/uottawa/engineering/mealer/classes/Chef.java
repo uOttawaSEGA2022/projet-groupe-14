@@ -1,10 +1,14 @@
 package ca.uottawa.engineering.mealer.classes;
 
+import java.util.Date;
+
 public class Chef extends User {
 
     // Currently using int for cheque, but should consider different option
     private String cheque;
     private String description;
+
+    private Date suspension;
 
     /**
      * Empty constructor used for Firebase. (DON'T USE, USE FULL CONSTRUCTOR!).
@@ -26,6 +30,7 @@ public class Chef extends User {
         super(nickname, name, email, address, "chef"); // hardcoded chef role
         this.cheque = cheque;
         this.description = desc;
+        this.suspension = null;
     }
 
     // TODO: see if it's possible to replace this with an image
@@ -44,4 +49,13 @@ public class Chef extends User {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Date getSuspension() {
+        return suspension;
+    }
+
+    public void setSuspension(Date date) {
+        this.suspension = date;
+    }
+
 }
