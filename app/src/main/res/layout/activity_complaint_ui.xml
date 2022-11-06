@@ -10,11 +10,11 @@
         android:id="@+id/dismissButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="5dp"
         android:onClick="dismissComplaint"
         android:text="Dismiss"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateCreatedTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/datePicker" />
     />
 
     <TextView
@@ -31,20 +31,21 @@
         android:id="@+id/suspendToDateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="5dp"
+        android:onClick="suspend"
         android:text="Suspend Until"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateCreatedTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/datePicker" />
 
     <Button
         android:id="@+id/permSuspendButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="5dp"
         android:onClick="permSuspend"
         android:text="Perm Suspend"
         app:layout_constraintEnd_toStartOf="@+id/suspendToDateButton"
-        app:layout_constraintTop_toBottomOf="@+id/dateCreatedTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/datePicker" />
 
 
     <TextView
@@ -57,4 +58,13 @@
         android:textSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateCreatedTextView" />
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chefNameTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

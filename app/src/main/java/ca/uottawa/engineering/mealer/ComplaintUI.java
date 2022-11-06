@@ -5,13 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.TextView;
+
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import ca.uottawa.engineering.mealer.classes.Complaint;
 
 public class ComplaintUI extends AppCompatActivity {
 
     Complaint complaint;
+
+    private DatePicker datePicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +32,20 @@ public class ComplaintUI extends AppCompatActivity {
 
         TextView chefName = (TextView) findViewById(R.id.chefNameTextView);
         chefName.setText(complaint.getChefName());
+
+        datePicker = (DatePicker) findViewById(R.id.datePicker);
+        datePicker.setMinDate(new Date().getTime());
+    }
+
+    // Suspend button
+    public void suspend(View view) {
+        int day = datePicker.getDayOfMonth();
+        int month = datePicker.getMonth();
+        int year =  datePicker.getYear();
+
+        Date date = new GregorianCalendar(year, month, day).getTime();
+        complaint.suspend(date);
+        go_back();
     }
 
     // permSuspend button

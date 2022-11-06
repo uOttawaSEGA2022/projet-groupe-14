@@ -99,7 +99,7 @@ public class Complaint implements Parcelable {
 
     public void suspend(Date date) {
         updateChef(date);
-        deleteSelf();
+//        deleteSelf();
     }
 
     public void dismiss() {
