@@ -66,7 +66,6 @@ public class AdminPage extends AppCompatActivity {
         final String TAG = "COMPLAINT";
 
         db.collection("complaints")
-                .whereEqualTo("finished", 0) // will only get unfinished complaints
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
