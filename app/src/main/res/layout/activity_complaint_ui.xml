@@ -11,9 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
+        android:onClick="dismissComplaint"
         android:text="Dismiss"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateCreatedTextView" />
+    />
 
     <TextView
         android:id="@+id/dateCreatedTextView"
@@ -39,20 +41,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
+        android:onClick="permSuspend"
         android:text="Perm Suspend"
         app:layout_constraintEnd_toStartOf="@+id/suspendToDateButton"
-        app:layout_constraintTop_toBottomOf="@+id/dateCreatedTextView"
-        android:onClick="permSuspend" />
+        app:layout_constraintTop_toBottomOf="@+id/dateCreatedTextView" />
 
 
     <TextView
         android:id="@+id/chefNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nom du Chef"
-        android:textSize="30dp"
-        android:textColor="@color/black"
         android:fontFamily="@font/poppinssemibold"
+        android:text="Nom du Chef"
+        android:textColor="@color/black"
+        android:textSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateCreatedTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

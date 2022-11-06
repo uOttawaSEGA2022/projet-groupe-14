@@ -6,11 +6,15 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.Date;
 
@@ -24,6 +28,9 @@ public class Complaint implements Parcelable {
     private String chefName;
     private DocumentReference chefRef;
 
+    // 0 is unfinished, 1 is finished
+    private int finished;
+
     public Complaint() {
     }
 
@@ -31,12 +38,14 @@ public class Complaint implements Parcelable {
         this.date_created = date_created;
         this.chefName = chefName;
         this.chefRef = chefRef;
+        this.finished = 0;
     }
 
     protected Complaint(Parcel in) {
         this.date_created = new Date(in.readLong());
         this.chefName = in.readString();
         this.chefRef = db.document(in.readString());
+        this.finished = in.readInt();
     }
 
     public static final Creator<Complaint> CREATOR = new Creator<Complaint>() {
@@ -67,6 +76,14 @@ public class Complaint implements Parcelable {
         this.chefName = chefName;
     }
 
+    public int getFinished() {
+        return finished;
+    }
+
+    public void setFinished(int finished) {
+        this.finished = finished;
+    }
+
     public DocumentReference getChefRef() {
         return chefRef;
     }
@@ -77,10 +94,16 @@ public class Complaint implements Parcelable {
 
     public void perm_suspend() {
         updateChef(PERM_SUSPENSION);
+        deleteSelf();
     }
 
     public void suspend(Date date) {
         updateChef(date);
+        deleteSelf();
+    }
+
+    public void dismiss() {
+        deleteSelf();
     }
 
     public void updateChef(Date date) {
@@ -102,6 +125,25 @@ public class Complaint implements Parcelable {
                 });
     }
 
+    public void deleteSelf() {
+        final String TAG = "COMPLAINT";
+        db.collection("complaints")
+                .whereEqualTo("date_created", date_created) // will get self
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                document.getReference().delete();
+                            }
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+    }
+
     public String toString() {
         return String.format("%s: %s", chefName, date_created);
     }
@@ -116,5 +158,6 @@ public class Complaint implements Parcelable {
         parcel.writeLong(date_created.getTime());
         parcel.writeString(chefName);
         parcel.writeString(chefRef.getPath());
+        parcel.writeInt(finished);
     }
 }

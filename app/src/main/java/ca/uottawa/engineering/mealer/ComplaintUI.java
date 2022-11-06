@@ -31,4 +31,9 @@ public class ComplaintUI extends AppCompatActivity {
     public void permSuspend(View view) {
         complaint.perm_suspend();
     }
+
+    // permSuspend button
+    public void dismissComplaint(View view) {
+        complaint.dismiss();
+    }
 }
