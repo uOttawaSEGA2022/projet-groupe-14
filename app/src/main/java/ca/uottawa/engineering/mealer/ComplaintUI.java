@@ -2,6 +2,7 @@ package ca.uottawa.engineering.mealer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -30,10 +31,19 @@ public class ComplaintUI extends AppCompatActivity {
     // permSuspend button
     public void permSuspend(View view) {
         complaint.perm_suspend();
+        go_back();
     }
 
     // permSuspend button
     public void dismissComplaint(View view) {
         complaint.dismiss();
+        go_back();
+    }
+
+    // Go back to adminPage
+    public void go_back() {
+        Intent switchActivityIntent = new Intent(this, AdminPage.class);
+
+        startActivity(switchActivityIntent);
     }
 }
