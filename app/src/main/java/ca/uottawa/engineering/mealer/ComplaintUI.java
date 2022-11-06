@@ -3,6 +3,7 @@ package ca.uottawa.engineering.mealer;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import ca.uottawa.engineering.mealer.classes.Complaint;
@@ -26,5 +27,8 @@ public class ComplaintUI extends AppCompatActivity {
         chefName.setText(complaint.getChefName());
     }
 
-
+    // permSuspend button
+    public void permSuspend(View view) {
+        complaint.perm_suspend();
+    }
 }

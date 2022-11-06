@@ -41,7 +41,9 @@
         android:layout_marginTop="100dp"
         android:text="Perm Suspend"
         app:layout_constraintEnd_toStartOf="@+id/suspendToDateButton"
-        app:layout_constraintTop_toBottomOf="@+id/dateCreatedTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/dateCreatedTextView"
+        android:onClick="permSuspend" />
+
 
     <TextView
         android:id="@+id/chefNameTextView"

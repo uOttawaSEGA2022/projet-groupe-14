@@ -16,7 +16,7 @@ import java.util.Date;
 
 public class Complaint implements Parcelable {
 
-    private final Date PERM_SUSPENSION = new Date(1);
+    private final Date PERM_SUSPENSION = new Date(10000);
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
