@@ -2,29 +2,25 @@ package ca.uottawa.engineering.mealer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.Timestamp;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
-import ca.uottawa.engineering.mealer.classes.Chef;
 import ca.uottawa.engineering.mealer.classes.Complaint;
 
 public class AdminPage extends AppCompatActivity {
@@ -48,6 +44,20 @@ public class AdminPage extends AppCompatActivity {
                 (this, android.R.layout.simple_list_item_1, complaints);
 
         listView.setAdapter(adapter);
+        listView.setClickable(true);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Complaint complaint = (Complaint) adapterView.getItemAtPosition(i);
+
+                switch_page();
+            }
+        });
+    }
+
+    private void switch_page() {
+        Intent switchActivityIntent = new Intent(this, ComplaintUI.class);
+        startActivity(switchActivityIntent);
     }
 
     public void retrieveComplaints() {
