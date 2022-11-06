@@ -28,9 +28,6 @@ public class Complaint implements Parcelable {
     private String chefName;
     private DocumentReference chefRef;
 
-    // 0 is unfinished, 1 is finished
-    private int finished;
-
     public Complaint() {
     }
 
@@ -38,14 +35,12 @@ public class Complaint implements Parcelable {
         this.date_created = date_created;
         this.chefName = chefName;
         this.chefRef = chefRef;
-        this.finished = 0;
     }
 
     protected Complaint(Parcel in) {
         this.date_created = new Date(in.readLong());
         this.chefName = in.readString();
         this.chefRef = db.document(in.readString());
-        this.finished = in.readInt();
     }
 
     public static final Creator<Complaint> CREATOR = new Creator<Complaint>() {
@@ -76,14 +71,6 @@ public class Complaint implements Parcelable {
         this.chefName = chefName;
     }
 
-    public int getFinished() {
-        return finished;
-    }
-
-    public void setFinished(int finished) {
-        this.finished = finished;
-    }
-
     public DocumentReference getChefRef() {
         return chefRef;
     }
@@ -99,7 +86,7 @@ public class Complaint implements Parcelable {
 
     public void suspend(Date date) {
         updateChef(date);
-//        deleteSelf();
+        deleteSelf();
     }
 
     public void dismiss() {
@@ -158,6 +145,5 @@ public class Complaint implements Parcelable {
         parcel.writeLong(date_created.getTime());
         parcel.writeString(chefName);
         parcel.writeString(chefRef.getPath());
-        parcel.writeInt(finished);
     }
 }
