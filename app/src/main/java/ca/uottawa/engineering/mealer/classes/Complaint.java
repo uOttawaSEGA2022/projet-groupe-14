@@ -8,45 +8,55 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.Date;
 
 public class Complaint {
 
-    private final Date PERMANENT_SUSPENSION = new Date(1);
+    private final Date PERM_SUSPENSION = new Date(1);
 
     private Date date_created;
+    private String chefName;
     private DocumentReference chefRef;
-    private Chef chef;
 
-    public Complaint(Date date_created, DocumentReference chefRef) {
-        this.date_created = date_created;
-        this.chefRef = chefRef;
-
-        chefRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Chef chef = documentSnapshot.toObject(Chef.class);
-                setChef(chef);
-            }
-        });    }
-
-    public Chef getChef() {
-        return chef;
+    public Complaint() {
     }
 
-    public void setChef(Chef chef) {
-        this.chef = chef;
+    public Complaint(Date date_created, String chefName, DocumentReference chefRef) {
+        this.date_created = date_created;
+        this.chefName = chefName;
+        this.chefRef = chefRef;
+    }
+
+    public Date getDate_created() {
+        return date_created;
+    }
+
+    public void setDate_created(Date date_created) {
+        this.date_created = date_created;
+    }
+
+    public String getChefName() {
+        return chefName;
+    }
+
+    public void setChefName(String chefName) {
+        this.chefName = chefName;
+    }
+
+    public DocumentReference getChefRef() {
+        return chefRef;
+    }
+
+    public void setChefRef(DocumentReference chefRef) {
+        this.chefRef = chefRef;
     }
 
     public void perm_suspend() {
-        chef.setSuspension(PERMANENT_SUSPENSION);
-        updateChef(PERMANENT_SUSPENSION);
+        updateChef(PERM_SUSPENSION);
     }
 
     public void suspend(Date date) {
-        chef.setSuspension(date);
         updateChef(date);
     }
 
@@ -67,5 +77,9 @@ public class Complaint {
                         Log.w(TAG, "Error updating document", e);
                     }
                 });
+    }
+
+    public String toString() {
+        return String.format("%s: %s", chefName, date_created);
     }
 }
