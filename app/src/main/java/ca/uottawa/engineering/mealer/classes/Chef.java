@@ -8,6 +8,9 @@ public class Chef extends User {
     private String cheque;
     private String description;
 
+    // if suspension == 0, no ban
+    // if suspension == 1, permanent ban
+    // else, banned until date
     private Date suspension;
 
     /**
@@ -30,7 +33,7 @@ public class Chef extends User {
         super(nickname, name, email, address, "chef"); // hardcoded chef role
         this.cheque = cheque;
         this.description = desc;
-        this.suspension = null;
+        this.suspension = new Date(0);
     }
 
     // TODO: see if it's possible to replace this with an image

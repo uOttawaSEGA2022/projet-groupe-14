@@ -7,11 +7,9 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -19,13 +17,9 @@ import com.google.firebase.firestore.QuerySnapshot;
 import android.os.Bundle;
 import android.widget.ListView;
 
-import org.checkerframework.checker.units.qual.C;
-
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Map;
 
-import ca.uottawa.engineering.mealer.classes.Chef;
 import ca.uottawa.engineering.mealer.classes.Complaint;
 
 public class AdminPage extends AppCompatActivity {
