@@ -1,5 +1,7 @@
 package ca.uottawa.engineering.mealer.classes;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -8,12 +10,15 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Date;
 
-public class Complaint {
+public class Complaint implements Parcelable {
 
     private final Date PERM_SUSPENSION = new Date(1);
+
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private Date date_created;
     private String chefName;
@@ -27,6 +32,24 @@ public class Complaint {
         this.chefName = chefName;
         this.chefRef = chefRef;
     }
+
+    protected Complaint(Parcel in) {
+        this.date_created = new Date(in.readLong());
+        this.chefName = in.readString();
+        this.chefRef = db.document(in.readString());
+    }
+
+    public static final Creator<Complaint> CREATOR = new Creator<Complaint>() {
+        @Override
+        public Complaint createFromParcel(Parcel in) {
+            return new Complaint(in);
+        }
+
+        @Override
+        public Complaint[] newArray(int size) {
+            return new Complaint[size];
+        }
+    };
 
     public Date getDate_created() {
         return date_created;
@@ -81,5 +104,17 @@ public class Complaint {
 
     public String toString() {
         return String.format("%s: %s", chefName, date_created);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeLong(date_created.getTime());
+        parcel.writeString(chefName);
+        parcel.writeString(chefRef.getPath());
     }
 }

@@ -7,16 +7,16 @@
     tools:context=".ComplaintUI">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/dismissButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
         android:layout_marginTop="100dp"
+        android:text="Dismiss"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/dateCreatedTextView" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/dateCreatedTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -26,25 +26,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/suspendToDateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="Button"
+        android:text="Suspend Until"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/dateCreatedTextView" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/permSuspendButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="Button"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        android:text="Perm Suspend"
+        app:layout_constraintEnd_toStartOf="@+id/suspendToDateButton"
+        app:layout_constraintTop_toBottomOf="@+id/dateCreatedTextView" />
 
     <TextView
-        android:id="@+id/NomDuChef"
+        android:id="@+id/chefNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nom du Chef"
@@ -52,5 +52,5 @@
         android:textColor="@color/black"
         android:fontFamily="@font/poppinssemibold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/dateCreatedTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

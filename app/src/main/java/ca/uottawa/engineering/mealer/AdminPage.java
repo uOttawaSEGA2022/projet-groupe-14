@@ -50,13 +50,15 @@ public class AdminPage extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Complaint complaint = (Complaint) adapterView.getItemAtPosition(i);
 
-                switch_page();
+                switch_page(complaint);
             }
         });
     }
 
-    private void switch_page() {
+    private void switch_page(Complaint complaint) {
         Intent switchActivityIntent = new Intent(this, ComplaintUI.class);
+        switchActivityIntent.putExtra("complaint", complaint);
+
         startActivity(switchActivityIntent);
     }
 
