@@ -70,7 +70,7 @@ public class ChefPage extends AppCompatActivity {
         } else if (time < 1000000) {
             suspension = "permanently suspended";
         } else {
-            long days = date.getTime() / (24 * 60 * 60 * 1000);
+            long days = (date.getTime() - new Date().getTime()) / (24 * 60 * 60 * 1000);
             suspension = String.format("suspended for %s days", days);
         }
 
