@@ -102,4 +102,31 @@ public class SignInTest {
                     }
                 });
     }
+
+    @Test
+    public void nonExistentSignIn() {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+        String TAG = "NONEXISENT-SIGNIN";
+        String email = "fake@fake.com";
+        String password = "mealer";
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        fail("Should not have signed in.");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // If sign in fails, display a message to the user.
+                        Log.d(TAG, "signInWithEmail:failure");
+                        assertTrue(true);
+                    }
+                });
+    }
+
 }
