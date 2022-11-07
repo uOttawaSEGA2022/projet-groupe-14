@@ -4,66 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
     tools:context=".ComplaintUI">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/dismissButton"
         android:layout_width="115dp"
         android:layout_height="52dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:text="dismiss the complaint"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="5dp"
+        android:onClick="dismissComplaint"
+        android:text="Dismiss the complaint"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/datePicker" /><![CDATA[
+    />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="115dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:text="permanently suspend"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="115dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="4dp"
-        android:text="temporarily suspend"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintHorizontal_bias="0.581"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+    ]]>
 
     <TextView
-        android:id="@+id/NomDuChef"
+        android:id="@+id/dateCreatedTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/poppinssemibold"
-        android:text="Nom du Chef"
-        android:textColor="#031636"
+        android:layout_marginTop="100dp"
+        android:text="Complaint du Chef"
         android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.191"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="324dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="8dp"
-        android:text="Description de la plainte"
-        android:textColor="#031636"
+    <Button
+        android:id="@+id/suspendToDateButton"
+        android:layout_width="115dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="8dp"
+        android:onClick="suspend"
+        android:text="temporarily suspend"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintTop_toBottomOf="@+id/datePicker" />
+
+    <Button
+        android:id="@+id/permSuspendButton"
+        android:layout_width="115dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="5dp"
+        android:onClick="permSuspend"
+        android:text="permanently suspend"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toStartOf="@+id/suspendToDateButton"
+        app:layout_constraintStart_toEndOf="@+id/dismissButton"
+        app:layout_constraintTop_toBottomOf="@+id/datePicker" />
+
+
+    <TextView
+        android:id="@+id/chefNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinssemibold"
+        android:text="Nom du Chef"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.146"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NomDuChef" />
+        app:layout_constraintTop_toBottomOf="@+id/dateCreatedTextView" />
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chefNameTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

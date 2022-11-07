@@ -1,40 +1,30 @@
 package ca.uottawa.engineering.mealer;
 
-import static android.content.ContentValues.TAG;
-
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.view.View;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
-
-//    // Check if user is signed in already
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        if(currentUser != null){
-////            reload(); // Do something
-//        }
-//    }
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +34,47 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Will get role of user then call switch_page() to get the right homepage.
+     */
     private void login() {
-        Intent switchActivityIntent = new Intent(this, Homepage.class);
-        startActivity(switchActivityIntent);
+        String TAG = "role-login";
+
+        DocumentReference docRef = db.collection("users").document(mAuth.getUid().toString());
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                final String role;
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        role = (String) document.get("role");
+                        switch_page(role);
+                    } else {
+                        Log.d(TAG, "No such document");
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
+    }
+
+    /**
+     * Switches to the right homepage based on user role.
+     * @param role
+     */
+    private void switch_page(String role) {
+        switch (role) {
+            case "chef":
+                Intent switchActivityIntent = new Intent(this, ChefPage.class);
+                startActivity(switchActivityIntent);
+                break;
+            case "admin":
+                switchActivityIntent = new Intent(this, AdminPage.class);
+                startActivity(switchActivityIntent);
+                break;
+        }
     }
 
     // Login button press

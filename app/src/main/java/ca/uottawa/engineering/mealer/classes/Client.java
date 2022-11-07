@@ -54,8 +54,4 @@ public class Client extends User {
         this.cardCVV = cardCVV;
     }
 
-    public Complaint complain(Chef chef) {
-
-        return new Complaint(chef);
-    }
 }
