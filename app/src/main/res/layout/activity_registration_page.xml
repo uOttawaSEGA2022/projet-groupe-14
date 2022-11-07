@@ -8,17 +8,28 @@
     tools:context=".RegistrationPage"
     android:background="#031636">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="259dp"
+        android:layout_height="277dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mealer" />
+
     <TextView
         android:id="@+id/CvvText"
         android:layout_width="104dp"
         android:layout_height="28dp"
+        android:layout_marginTop="28dp"
         android:text="Register as:"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="335dp" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/button_client"
@@ -46,16 +57,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CvvText" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="280dp"
-        android:layout_height="267dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/Mealer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
