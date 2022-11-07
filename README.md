@@ -12,4 +12,4 @@ Pages:
 - Registration page (home, client, chef)
 
 ### Diagramme UML:
-<img src="Diagramme-UML.jpg" width="500">
+<img src="Diagramme_UML.jpg" width="500">
