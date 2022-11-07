@@ -66,8 +66,12 @@ public class MainActivity extends AppCompatActivity {
      */
     private void switch_page(String role) {
         switch (role) {
+            case "chef":
+                Intent switchActivityIntent = new Intent(this, ChefPage.class);
+                startActivity(switchActivityIntent);
+                break;
             case "admin":
-                Intent switchActivityIntent = new Intent(this, AdminPage.class);
+                switchActivityIntent = new Intent(this, AdminPage.class);
                 startActivity(switchActivityIntent);
                 break;
         }
