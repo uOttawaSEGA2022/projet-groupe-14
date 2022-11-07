@@ -55,6 +55,14 @@ public class AdminPage extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onRestart()
+    {
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
+    }
+
     private void switch_page(Complaint complaint) {
         Intent switchActivityIntent = new Intent(this, ComplaintUI.class);
         switchActivityIntent.putExtra("complaint", complaint);

@@ -62,8 +62,6 @@ public class ComplaintUI extends AppCompatActivity {
 
     // Go back to adminPage
     public void go_back() {
-        Intent switchActivityIntent = new Intent(this, AdminPage.class);
-
-        startActivity(switchActivityIntent);
+        onBackPressed();
     }
 }
