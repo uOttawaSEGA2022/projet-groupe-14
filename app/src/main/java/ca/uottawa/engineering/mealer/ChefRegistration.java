@@ -79,7 +79,7 @@ public class ChefRegistration extends AppCompatActivity {
 
         TimeUnit.SECONDS.sleep(1); // Sometimes it goes too fast and the database doesn't update fast enough
         if (mAuth.getUid() != null) {
-            Intent switchActivityIntent = new Intent(this, Homepage.class);
+            Intent switchActivityIntent = new Intent(this, ChefPage.class);
             startActivity(switchActivityIntent);
         }
     }

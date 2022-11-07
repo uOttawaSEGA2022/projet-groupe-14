@@ -61,7 +61,7 @@ public class ComplaintUI extends AppCompatActivity {
     }
 
     // Go back to adminPage
-    public void go_back() {
+    public void go_back(){
         onBackPressed();
     }
 }
