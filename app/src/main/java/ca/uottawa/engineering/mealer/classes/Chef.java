@@ -1,13 +1,16 @@
 package ca.uottawa.engineering.mealer.classes;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Chef extends User {
 
-    // Currently using int for cheque, but should consider different option
+    private ArrayList<Meal> menu;
+
     private String cheque;
     private String description;
 
+    // TODO: garbage system, must fix
     // if suspension == 0, no ban
     // if suspension == 1, permanent ban
     // else, banned until date
@@ -34,7 +37,21 @@ public class Chef extends User {
         this.cheque = cheque;
         this.description = desc;
         this.suspension = new Date(0);
+        // Get meal list from firebase
     }
+
+    public void addMeal(String name, String mealType, String cuisineType, String[] ingredients, String[] allergies, float cost, String desc) {
+        Meal meal = new Meal(name, mealType, cuisineType, ingredients, allergies, cost, desc);
+        menu.add(meal);
+    };
+
+    public void addToProposed(Meal meal) {};
+
+    // meal must not be in the proposed meals list
+    public void deleteMealFromMenu(Meal meal) {};
+
+
+    public void deleteFromProposed(Meal meal) {};
 
     // TODO: see if it's possible to replace this with an image
     public String getCheque() {
