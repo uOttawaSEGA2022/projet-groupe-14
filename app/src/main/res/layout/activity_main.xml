@@ -5,82 +5,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#031636">
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/mealer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinssemibold"
+        android:paddingTop="30dp"
+        android:text="Mealer"
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        android:shadowColor="@color/text_shadow"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/usernameTextEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginTop="120dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="300dp"
         android:background="@drawable/edittext_design"
         android:drawableStart="@drawable/ic_mail"
         android:drawablePadding="10dp"
         android:ems="12"
         android:hint="Username"
+        android:textColorHint="#a3a3a2"
         android:inputType="textPersonName"
         android:textColor="@color/black"
         android:textSize="23sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/mealer" />
 
     <EditText
         android:id="@+id/passwordTextEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/edittext_design"
         android:drawableStart="@drawable/ic_lock"
         android:ems="12"
         android:hint="Password"
+        android:textColorHint="#a3a3a2"
         android:inputType="textPassword"
         android:textSize="23sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usernameTextEdit" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="409dp"
-        android:layout_height="122dp"
-        android:layout_marginTop="1dp"
-        android:orientation="horizontal"
-        android:padding="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordTextEdit">
-
-        <Button
-            android:id="@+id/button_chef"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="#5aabe8"
-            android:onClick="loginUser"
-            android:text="Login" />
-
-        <Button
-            android:id="@+id/button_client"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="#071e30"
-            android:onClick="register"
-            android:text="Register" />
-
-    </LinearLayout>
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginBottom="2dp"
-        android:fontFamily="@font/poppinsregular"
-        android:paddingLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/poppinssemibold"
         android:text="Email:"
-        android:textColor="@color/white"
         android:textSize="20dp"
+        android:paddingLeft="20dp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/usernameTextEdit"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -88,36 +75,71 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:fontFamily="@font/poppinsregular"
+        android:fontFamily="@font/poppinssemibold"
         android:paddingLeft="20dp"
         android:text="Password:"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/passwordTextEdit"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_chef"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="40dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/custom_button"
+        android:onClick="loginUser"
+        android:text="Login"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTextEdit" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_client"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/custom_button"
+        android:onClick="register"
+        android:text="Register"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="5dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_chef"
+        app:layout_constraintVertical_bias="0" />
 
     <TextView
         android:id="@+id/errormsgmain"
+        style="@style/basictext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:text=""
-        style="@style/basictext"
+        android:textColor="#ff1930"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        android:textColor="#ff1930"/>
+        app:layout_constraintTop_toBottomOf="@+id/button_client" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="259dp"
-        android:layout_height="277dp"
-        android:layout_marginTop="16dp"
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mealer" />
+        app:layout_constraintTop_toBottomOf="@+id/mealer"
+        app:srcCompat="@drawable/main" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
