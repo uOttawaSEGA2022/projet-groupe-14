@@ -6,56 +6,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegistrationPage"
-    android:background="#031636">
+    android:background="@color/white">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="259dp"
-        android:layout_height="277dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mealer" />
 
-    <TextView
-        android:id="@+id/CvvText"
-        android:layout_width="104dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="28dp"
-        android:text="Register as:"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_client"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/custom_button"
+        android:onClick="registerAsClient"
+        android:text="Client"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <Button
-        android:id="@+id/button_client"
-        android:layout_width="116dp"
-        android:layout_height="60dp"
-        android:layout_weight="1"
-        android:backgroundTint="#5AAAE7"
-        android:onClick="registerAsClient"
-        android:text="Client"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_chef"
+        app:layout_constraintVertical_bias="0.0" />
 
-        />
-
-
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_chef"
-        android:layout_width="116dp"
+        android:layout_width="200dp"
         android:layout_height="60dp"
         android:layout_weight="1"
-        android:backgroundTint="#5aabe8"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/custom_button"
         android:onClick="registerAsChef"
         android:text="Chef"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CvvText" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="409dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/registration2" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Let's the journey begin!"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppinssemibold"
+        android:textSize="20dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
