@@ -41,17 +41,10 @@ public class Chef extends User {
         // Get meal list from firebase
     }
 
-    public void addMeal(String mName, String mealType, String cuisineType, String ingredients, String allergies, String cost, String desc,String chefname) {
-        Meal meal = new Meal(mName, cuisineType, ingredients, allergies, cost, desc, getName());
-    };
-
-    public void addToProposed(Meal meal) {};
-
-    // meal must not be in the proposed meals list
-    public void deleteMealFromMenu(Meal meal) {};
-
-
-    public void deleteFromProposed(Meal meal) {};
+    // Check if banned
+    public boolean isBanned() {
+        return getSuspension().getTime() > new Date().getTime();
+    }
 
     // TODO: see if it's possible to replace this with an image
     public String getCheque() {

@@ -71,9 +71,6 @@ public class ChefPage extends AppCompatActivity {
 
         if (date.getTime() <= new Date().getTime()) {
             suspension = "not suspended";
-        } else if (time < 90000000000L) {
-            suspension = "permanently suspended";
-            // send to suspension page
         } else {
             long days = (date.getTime() - new Date().getTime()) / (24 * 60 * 60 * 1000);
             suspension = String.format("suspended for %s days", days);
