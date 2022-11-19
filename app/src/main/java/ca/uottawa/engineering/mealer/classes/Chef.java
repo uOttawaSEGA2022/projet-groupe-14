@@ -42,7 +42,7 @@ public class Chef extends User {
     }
 
     public void addMeal(String name, String mealType, String cuisineType, String ingredients, String allergies, String cost, String desc,String chefname) {
-        Meal meal = new Meal(name, cuisineType, ingredients, allergies, cost, desc,chefname);
+        Meal meal = new Meal(name, cuisineType, ingredients, allergies, cost, desc);
         menu.add(meal);
     };
 

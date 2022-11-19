@@ -9,9 +9,10 @@ public class Meal {
     private String allergies;
     private String cost;
     private String desc;
-    private String chefname;
 
-    public Meal(String name, String cuisineType, String ingredients, String allergies, String cost, String desc,String chefname) {
+    public Meal() {}
+
+    public Meal(String name, String cuisineType, String ingredients, String allergies, String cost, String desc) {
         this.name = name;
         this.mealType = mealType;
         this.cuisineType = cuisineType;
@@ -19,7 +20,6 @@ public class Meal {
         this.allergies = allergies;
         this.cost = cost;
         this.desc = desc;
-        this.chefname = chefname;
     }
 
     public String getName() {

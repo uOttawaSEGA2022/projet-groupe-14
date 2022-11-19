@@ -1,36 +1,28 @@
 package ca.uottawa.engineering.mealer;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.concurrent.TimeUnit;
-
-import ca.uottawa.engineering.mealer.classes.Chef;
 import ca.uottawa.engineering.mealer.classes.Meal;
 
-public class Addmeal extends AppCompatActivity {
+public class AddMeal extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
-    private final String TAG = "chefReg";
+    private final String TAG = "MEAL-MENU-ADD";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_choice_page);
     }
-    public void register(View view) throws InterruptedException {
+    public void addMealToMenu(View view) throws InterruptedException {
 
         String[] inputs = getInput();
 
@@ -40,11 +32,11 @@ public class Addmeal extends AppCompatActivity {
         String allergies = inputs[3];
         String description = inputs[4];
         String price = inputs[5];
-        Meal meal= new Meal(name,type,ingredient,allergies,description,price,"");
+        Meal meal= new Meal(name,type,ingredient,allergies,description,price);
         //push the meal to the data base
-
-
+        db.collection("users/" + mAuth.getUid() + "/menu/").document().set(meal);
     }
+
     public String[] getInput() {
         String[] inputs = new String[7];
 

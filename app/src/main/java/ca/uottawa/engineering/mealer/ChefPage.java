@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -74,9 +73,11 @@ public class ChefPage extends AppCompatActivity {
             suspension = "not suspended";
         } else if (time < 90000000000L) {
             suspension = "permanently suspended";
+            // send to suspension page
         } else {
             long days = (date.getTime() - new Date().getTime()) / (24 * 60 * 60 * 1000);
             suspension = String.format("suspended for %s days", days);
+            // send to suspension page
         }
 
 
@@ -98,7 +99,7 @@ public class ChefPage extends AppCompatActivity {
         startActivity(switchActivityIntent);
     }
     public void onclickaddmeal(View view){
-        Intent switchActivityIntent = new Intent(this, Addmeal.class);
+        Intent switchActivityIntent = new Intent(this, AddMeal.class);
         startActivity(switchActivityIntent);
     }
 }

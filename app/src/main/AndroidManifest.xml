@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Mealer"
         tools:targetApi="31">
         <activity
-            android:name=".Addmeal"
+            android:name=".AddMeal"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
