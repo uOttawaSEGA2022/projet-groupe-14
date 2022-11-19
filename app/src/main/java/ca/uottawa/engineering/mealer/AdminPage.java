@@ -57,11 +57,9 @@ public class AdminPage extends AppCompatActivity {
     }
 
     @Override
-    public void onRestart()
-    {
+    public void onRestart() {
         super.onRestart();
-        finish();
-        startActivity(getIntent());
+        this.recreate();
     }
 
     private void switch_page(Complaint complaint) {
