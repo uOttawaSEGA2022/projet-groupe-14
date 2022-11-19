@@ -43,7 +43,7 @@ public class MenuMealTest {
                         String allergies = "No Allergies";
                         String description = "Classic Italian Meal";
                         String price = "30$";
-                        Meal meal= new Meal(name,type,ingredient,allergies,description,price);
+                        Meal meal= new Meal(name,type,ingredient,allergies,description,price, "don't work");
                         String path = String.format("users/%s/menu/", mAuth.getUid());
                         Log.d(TAG, path);
                         db.collection(path).document().set(meal);

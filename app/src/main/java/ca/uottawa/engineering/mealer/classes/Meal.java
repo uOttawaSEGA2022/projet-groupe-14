@@ -12,10 +12,11 @@ public class Meal implements Parcelable {
     private String allergies;
     private String cost;
     private String desc;
+    private String chefName;
 
     public Meal() {}
 
-    public Meal(String name, String cuisineType, String ingredients, String allergies, String cost, String desc) {
+    public Meal(String name, String cuisineType, String ingredients, String allergies, String cost, String desc, String chefname) {
         this.name = name;
         this.mealType = mealType;
         this.cuisineType = cuisineType;
@@ -23,10 +24,11 @@ public class Meal implements Parcelable {
         this.allergies = allergies;
         this.cost = cost;
         this.desc = desc;
+        this.chefName= chefname;
     }
 
     public String toString() {
-        return String.format("%s", name);
+        return String.format("%s: %s", name, chefName);
     }
 
     // Parcelable Things
@@ -39,6 +41,7 @@ public class Meal implements Parcelable {
         this.allergies = in.readString();
         this.cost = in.readString();
         this.desc = in.readString();
+        this.chefName = in.readString();
     }
 
     @Override
@@ -50,6 +53,7 @@ public class Meal implements Parcelable {
         parcel.writeString(allergies);
         parcel.writeString(cost);
         parcel.writeString(desc);
+        parcel.writeString(chefName);
     }
 
     public static final Creator<Meal> CREATOR = new Creator<Meal>() {
@@ -126,4 +130,11 @@ public class Meal implements Parcelable {
         this.desc = desc;
     }
 
+    public String getChefName() {
+        return chefName;
+    }
+
+    public void setChefName(String chefName) {
+        this.chefName = chefName;
+    }
 }

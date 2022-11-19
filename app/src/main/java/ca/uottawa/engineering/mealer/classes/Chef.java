@@ -41,9 +41,8 @@ public class Chef extends User {
         // Get meal list from firebase
     }
 
-    public void addMeal(String name, String mealType, String cuisineType, String ingredients, String allergies, String cost, String desc,String chefname) {
-        Meal meal = new Meal(name, cuisineType, ingredients, allergies, cost, desc);
-        menu.add(meal);
+    public void addMeal(String mName, String mealType, String cuisineType, String ingredients, String allergies, String cost, String desc,String chefname) {
+        Meal meal = new Meal(mName, cuisineType, ingredients, allergies, cost, desc, getName());
     };
 
     public void addToProposed(Meal meal) {};
