@@ -73,6 +73,13 @@ public class Meal implements Parcelable {
         return 0;
     }
 
+    public boolean equals(Meal meal) {
+        if (this.name.equals(meal.getName()) && this.chefName.equals(meal.getChefName()) && this.ingredients.equals(meal.getIngredients())){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public String getName() {
         return name;
