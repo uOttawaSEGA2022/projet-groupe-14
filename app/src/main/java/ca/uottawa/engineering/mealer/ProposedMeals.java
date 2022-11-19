@@ -62,6 +62,12 @@ public class ProposedMeals extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        this.recreate();
+    }
+
     public void retrieveProposedMenu() {
 
         // restrict to current chef's meals?

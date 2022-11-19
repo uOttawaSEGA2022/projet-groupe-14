@@ -24,6 +24,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import ca.uottawa.engineering.mealer.classes.Meal;
 
@@ -72,7 +73,7 @@ public class MealUi extends AppCompatActivity {
 
     }
 
-    public void deleteMeal(View view) {
+    public void deleteMeal(View view) throws InterruptedException {
         for (Meal pMeal: proposedMeals) {
             if (pMeal.equals(meal)) {
                 Context context = getApplicationContext();
@@ -108,10 +109,11 @@ public class MealUi extends AppCompatActivity {
                         }
                     }
                 });
+        TimeUnit.SECONDS.sleep(1); // Sometimes it goes too fast and the database doesn't update fast enough
         onBackPressed();
     }
 
-    public void addToProposedMeals(View view) {
+    public void addToProposedMeals(View view) throws InterruptedException {
         Map<String, Object> pMeal = new HashMap<>();
         pMeal.put("chefName", meal.getChefName());
         pMeal.put("mealRef", mealRef);

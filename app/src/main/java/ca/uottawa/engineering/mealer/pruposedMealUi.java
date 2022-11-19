@@ -21,6 +21,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import ca.uottawa.engineering.mealer.classes.Meal;
 
@@ -71,6 +72,11 @@ public class pruposedMealUi extends AppCompatActivity {
                                             Toast toast = Toast.makeText(context, text, duration);
                                             toast.show();
 
+                                            try {
+                                                TimeUnit.SECONDS.sleep(1); // Sometimes it goes too fast and the database doesn't update fast enough
+                                            } catch (InterruptedException e) {
+                                                e.printStackTrace();
+                                            }
                                             onBackPressed();
                                         }
                                     }

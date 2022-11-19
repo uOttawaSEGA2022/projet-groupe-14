@@ -58,6 +58,12 @@ public class MenuPage extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        this.recreate();
+    }
+
     public void retrieveMenu() {
 
         db.collection("users/" + mAuth.getUid() + "/menu/")
