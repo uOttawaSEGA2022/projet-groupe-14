@@ -95,7 +95,7 @@ public class ChefPage extends AppCompatActivity {
         startActivity(switchActivityIntent);
     }
     public void onclickadd(View view){
-        Intent switchActivityIntent = new Intent(this, Proposedmeals.class);
+        Intent switchActivityIntent = new Intent(this, ProposedMeals.class);
         startActivity(switchActivityIntent);
     }
     public void onclickaddmeal(View view){
