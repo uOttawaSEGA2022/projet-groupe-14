@@ -23,6 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Delete Meal"
+        android:onClick="deleteMeal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nomDuMeal" />
 
@@ -31,6 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add to my pruposed meal"
+        android:onClick="addToProposedMeals"
         android:layout_marginLeft="10dp"
         app:layout_constraintStart_toEndOf="@+id/DeleteMeal"
         app:layout_constraintTop_toBottomOf="@+id/nomDuMeal" />
