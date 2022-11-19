@@ -16,7 +16,7 @@ public class ChefTests {
     /**
      * Check if chef method isSuspended() is able to see if chef is indeed suspended.
      */
-    public void isSuspendedTest() {
+    public void isSuspendedTrueTest() {
         String TAG = "chef-test-1";
 
         Chef chef = new Chef("Nickname", "Name", "email@address.com", "Address", "213451253", "Description");
@@ -28,7 +28,20 @@ public class ChefTests {
         // Get current time
         chef.setSuspension(new Date());
         assertEquals(false, chef.isSuspended());
+    }
 
+    @Test
+    /**
+     * Check if chef method isSuspended() is able to see if chef is not suspended.
+     */
+    public void isSuspendedFalseTest() {
+        String TAG = "chef-test-2";
+
+        Chef chef = new Chef("Nickname", "Name", "email@address.com", "Address", "213451253", "Description");
+
+        // Get current time
+        chef.setSuspension(new Date());
+        assertEquals(false, chef.isSuspended());
     }
 
 }

@@ -18,6 +18,7 @@ import org.junit.Test;
 
 import ca.uottawa.engineering.mealer.classes.Meal;
 
+// ignore, work in progress
 public class MenuMealTest {
 
     @Test

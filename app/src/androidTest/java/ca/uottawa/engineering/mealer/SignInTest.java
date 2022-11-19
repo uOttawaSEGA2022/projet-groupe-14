@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import org.junit.Test;
 
+// TODO: test async, await, etc and wait for method to finish
 public class SignInTest {
 
     @Test
