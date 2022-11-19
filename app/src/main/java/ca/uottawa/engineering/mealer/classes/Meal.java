@@ -1,6 +1,9 @@
 package ca.uottawa.engineering.mealer.classes;
 
-public class Meal {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Meal implements Parcelable {
 
     private String name;
     private String mealType;
@@ -25,6 +28,47 @@ public class Meal {
     public String toString() {
         return String.format("%s", name);
     }
+
+    // Parcelable Things
+
+    protected Meal(Parcel in) {
+        this.name = in.readString();
+        this.mealType = in.readString();
+        this.cuisineType = in.readString();
+        this.ingredients = in.readString();
+        this.allergies = in.readString();
+        this.cost = in.readString();
+        this.desc = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(name);
+        parcel.writeString(mealType);
+        parcel.writeString(cuisineType);
+        parcel.writeString(ingredients);
+        parcel.writeString(allergies);
+        parcel.writeString(cost);
+        parcel.writeString(desc);
+    }
+
+    public static final Creator<Complaint> CREATOR = new Creator<Complaint>() {
+        @Override
+        public Complaint createFromParcel(Parcel in) {
+            return new Complaint(in);
+        }
+
+        @Override
+        public Complaint[] newArray(int size) {
+            return new Complaint[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
 
     public String getName() {
         return name;

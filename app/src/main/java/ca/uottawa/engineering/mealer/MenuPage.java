@@ -82,7 +82,7 @@ public class MenuPage extends AppCompatActivity {
 
     private void switch_page(Meal meal) {
         Intent switchActivityIntent = new Intent(this, MealUi.class);
-        switchActivityIntent.putExtra("meal", meals);
+        switchActivityIntent.putExtra("meal", meal);
 
         startActivity(switchActivityIntent);
     }
