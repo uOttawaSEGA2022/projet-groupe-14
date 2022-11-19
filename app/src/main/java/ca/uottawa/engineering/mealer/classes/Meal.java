@@ -52,15 +52,15 @@ public class Meal implements Parcelable {
         parcel.writeString(desc);
     }
 
-    public static final Creator<Complaint> CREATOR = new Creator<Complaint>() {
+    public static final Creator<Meal> CREATOR = new Creator<Meal>() {
         @Override
-        public Complaint createFromParcel(Parcel in) {
-            return new Complaint(in);
+        public Meal createFromParcel(Parcel in) {
+            return new Meal(in);
         }
 
         @Override
-        public Complaint[] newArray(int size) {
-            return new Complaint[size];
+        public Meal[] newArray(int size) {
+            return new Meal[size];
         }
     };
 
