@@ -37,11 +37,12 @@ public class Chef extends User {
         this.cheque = cheque;
         this.description = desc;
         this.suspension = new Date(0);
+
         // Get meal list from firebase
     }
 
-    public void addMeal(String name, String mealType, String cuisineType, String[] ingredients, String[] allergies, float cost, String desc) {
-        Meal meal = new Meal(name, mealType, cuisineType, ingredients, allergies, cost, desc);
+    public void addMeal(String name, String mealType, String cuisineType, String ingredients, String allergies, String cost, String desc,String chefname) {
+        Meal meal = new Meal(name, cuisineType, ingredients, allergies, cost, desc,chefname);
         menu.add(meal);
     };
 

@@ -16,9 +16,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import ca.uottawa.engineering.mealer.classes.Chef;
+import ca.uottawa.engineering.mealer.classes.Meal;
 
 public class ChefRegistration extends AppCompatActivity {
 

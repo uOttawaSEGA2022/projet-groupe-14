@@ -48,9 +48,10 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/mymenu"
         android:layout_width="198dp"
         android:layout_height="53dp"
+        android:onClick="onclickMenu"
         android:text="My menu"
         app:layout_constraintBottom_toTopOf="@+id/logoutButtonChefPage"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,15 +61,27 @@
         app:layout_constraintVertical_bias="0.339" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/myproposedmeals"
         android:layout_width="198dp"
         android:layout_height="wrap_content"
+        android:onClick="onclickadd"
         android:text="My proposed meals"
         app:layout_constraintBottom_toTopOf="@+id/logoutButtonChefPage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/mymenu"
         app:layout_constraintVertical_bias="0.103" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="198dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="5dp"
+        android:onClick="onclickaddmeal"
+        android:text="Add meal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myproposedmeals" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -17,7 +18,10 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.Date;
+
+import ca.uottawa.engineering.mealer.classes.Meal;
 
 public class ChefPage extends AppCompatActivity {
 
@@ -59,6 +63,7 @@ public class ChefPage extends AppCompatActivity {
         String role = document.get("role").toString();
         String name = document.get("name").toString();
         String suspension;
+        ArrayList<Meal> meals;
 
         Timestamp timestamp = (Timestamp) document.get("suspension");
         Date date = timestamp.toDate();
@@ -82,6 +87,18 @@ public class ChefPage extends AppCompatActivity {
     public void logoutUser(View view) {
         mAuth.signOut();
         Intent switchActivityIntent = new Intent(this, MainActivity.class);
+        startActivity(switchActivityIntent);
+    }
+    public void onclickMenu(View view){
+        Intent switchActivityIntent = new Intent(this, MenuPage.class);
+        startActivity(switchActivityIntent);
+    }
+    public void onclickadd(View view){
+        Intent switchActivityIntent = new Intent(this, Proposedmeals.class);
+        startActivity(switchActivityIntent);
+    }
+    public void onclickaddmeal(View view){
+        Intent switchActivityIntent = new Intent(this, Addmeal.class);
         startActivity(switchActivityIntent);
     }
 }

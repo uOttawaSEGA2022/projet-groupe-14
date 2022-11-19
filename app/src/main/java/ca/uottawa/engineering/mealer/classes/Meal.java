@@ -5,12 +5,13 @@ public class Meal {
     private String name;
     private String mealType;
     private String cuisineType;
-    private String[] ingredients;
-    private String[] allergies;
-    private float cost;
+    private String ingredients;
+    private String allergies;
+    private String cost;
     private String desc;
+    private String chefname;
 
-    public Meal(String name, String mealType, String cuisineType, String[] ingredients, String[] allergies, float cost, String desc) {
+    public Meal(String name, String cuisineType, String ingredients, String allergies, String cost, String desc,String chefname) {
         this.name = name;
         this.mealType = mealType;
         this.cuisineType = cuisineType;
@@ -18,6 +19,7 @@ public class Meal {
         this.allergies = allergies;
         this.cost = cost;
         this.desc = desc;
+        this.chefname = chefname;
     }
 
     public String getName() {
@@ -44,27 +46,27 @@ public class Meal {
         this.cuisineType = cuisineType;
     }
 
-    public String[] getIngredients() {
+    public String getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(String[] ingredients) {
+    public void setIngredients(String ingredients) {
         this.ingredients = ingredients;
     }
 
-    public String[] getAllergies() {
+    public String getAllergies() {
         return allergies;
     }
 
-    public void setAllergies(String[] allergies) {
+    public void setAllergies(String allergies) {
         this.allergies = allergies;
     }
 
-    public float getCost() {
+    public String getCost() {
         return cost;
     }
 
-    public void setCost(float cost) {
+    public void setCost(String cost) {
         this.cost = cost;
     }
 
