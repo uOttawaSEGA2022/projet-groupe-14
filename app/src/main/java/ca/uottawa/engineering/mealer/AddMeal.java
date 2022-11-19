@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -48,8 +49,12 @@ public class AddMeal extends AppCompatActivity {
         });
     }
     public void addMealToMenu(View view) throws InterruptedException {
-
         String[] inputs = getInput();
+        boolean valid = validateInput(inputs);
+
+        if(!valid){
+            return;
+        }
 
         String name = inputs[0];
         String type = inputs[1];
@@ -62,7 +67,7 @@ public class AddMeal extends AppCompatActivity {
         db.collection("users/" + mAuth.getUid() + "/menu/").document().set(meal);
     }
 
-    public String[] getInput() {
+    public String[] getInput() { //Get user input
         String[] inputs = new String[7];
 
         EditText name = (EditText) findViewById(R.id.TypeOfMealPlainText);
@@ -81,4 +86,23 @@ public class AddMeal extends AppCompatActivity {
 
         return inputs;
     }
+    public boolean validateInput(String[] inputs) {
+
+        for (String input: inputs) {
+            input = input.trim();
+            if (input.isEmpty()) {
+                errorMessage("Please make sure fields aren't empty.");
+                return false;
+            }
+        }
+
+
+
+        return true;
+    }
+    public void errorMessage(String message) {
+        TextView errormsg = (TextView) findViewById(R.id.ErrormsgAddMeal);
+        errormsg.setText(message);
+    }
+
 }
