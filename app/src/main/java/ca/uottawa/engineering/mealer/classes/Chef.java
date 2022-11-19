@@ -10,10 +10,6 @@ public class Chef extends User {
     private String cheque;
     private String description;
 
-    // TODO: garbage system, must fix
-    // if suspension == 0, no ban
-    // if suspension == 1, permanent ban
-    // else, banned until date
     private Date suspension;
 
     /**
@@ -42,7 +38,7 @@ public class Chef extends User {
     }
 
     // Check if banned
-    public boolean isBanned() {
+    public boolean isSuspended() {
         return getSuspension().getTime() > new Date().getTime();
     }
 
