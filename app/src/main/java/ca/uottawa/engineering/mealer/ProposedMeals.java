@@ -3,8 +3,11 @@ package ca.uottawa.engineering.mealer;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -20,6 +23,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
+import ca.uottawa.engineering.mealer.classes.Complaint;
 import ca.uottawa.engineering.mealer.classes.Meal;
 
 public class ProposedMeals extends AppCompatActivity {
@@ -47,6 +51,15 @@ public class ProposedMeals extends AppCompatActivity {
                 (this, android.R.layout.simple_list_item_1, proposedMeals);
 
         listView.setAdapter(adapter);
+        listView.setClickable(true);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Meal meal= (Meal) adapterView.getItemAtPosition(i);
+
+                switch_page(meal);
+            }
+        });
     }
 
     public void retrieveProposedMenu() {
@@ -79,5 +92,11 @@ public class ProposedMeals extends AppCompatActivity {
                     }
                 });
 
+    }
+    private void switch_page(Meal pmeal) {
+        Intent switchActivityIntent = new Intent(this, pruposedMealUi.class);
+        switchActivityIntent.putExtra("pmeal", pmeal);
+
+        startActivity(switchActivityIntent);
     }
 }
