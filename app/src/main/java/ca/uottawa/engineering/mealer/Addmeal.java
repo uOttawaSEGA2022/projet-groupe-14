@@ -30,7 +30,7 @@ public class Addmeal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_choice_page);
     }
-    public void register(View view) throws InterruptedException {
+    public void addmeal(View view) throws InterruptedException {
 
         String[] inputs = getInput();
 
@@ -42,6 +42,7 @@ public class Addmeal extends AppCompatActivity {
         String price = inputs[5];
         Meal meal= new Meal(name,type,ingredient,allergies,description,price,"");
         //push the meal to the data base
+        db.collection("meals").document("mealid").set(meal);
 
 
     }
