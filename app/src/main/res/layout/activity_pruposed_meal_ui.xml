@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MealUi">
-
+    tools:context=".pruposedMealUi">
     <TextView
         android:id="@+id/nomDuMeal"
         android:layout_width="wrap_content"
@@ -27,13 +26,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nomDuMeal" />
 
-    <Button
-        android:id="@+id/Addtoprup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add to my pruposed meal"
-        android:onClick="addToProposedMeals"
-        android:layout_marginLeft="10dp"
-        app:layout_constraintStart_toEndOf="@+id/DeletePMeal"
-        app:layout_constraintTop_toBottomOf="@+id/nomDuMeal" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
