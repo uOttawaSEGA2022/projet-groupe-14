@@ -72,7 +72,6 @@ public class MealUi extends AppCompatActivity {
 
     }
 
-    // TODO: check if meal is in list of proposed meals, not checking currently
     public void deleteMeal(View view) {
         for (Meal pMeal: proposedMeals) {
             if (pMeal.equals(meal)) {

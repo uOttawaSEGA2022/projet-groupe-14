@@ -93,9 +93,10 @@ public class ProposedMeals extends AppCompatActivity {
                 });
 
     }
-    private void switch_page(Meal pmeal) {
+
+    private void switch_page(Meal meal) {
         Intent switchActivityIntent = new Intent(this, pruposedMealUi.class);
-        switchActivityIntent.putExtra("pmeal", pmeal);
+        switchActivityIntent.putExtra("meal", meal);
 
         startActivity(switchActivityIntent);
     }
