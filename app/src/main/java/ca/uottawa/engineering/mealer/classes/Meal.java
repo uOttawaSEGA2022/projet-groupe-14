@@ -22,6 +22,10 @@ public class Meal {
         this.desc = desc;
     }
 
+    public String toString() {
+        return String.format("%s", name);
+    }
+
     public String getName() {
         return name;
     }
