@@ -3,6 +3,8 @@ package ca.uottawa.engineering.mealer.classes;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.Objects;
+
 public class Meal implements Parcelable {
 
     private String name;
@@ -14,7 +16,8 @@ public class Meal implements Parcelable {
     private String desc;
     private String chefName;
 
-    public Meal() {}
+    public Meal() {
+    }
 
     public Meal(String name, String cuisineType, String ingredients, String allergies, String cost, String desc, String chefname) {
         this.name = name;
@@ -24,7 +27,7 @@ public class Meal implements Parcelable {
         this.allergies = allergies;
         this.cost = cost;
         this.desc = desc;
-        this.chefName= chefname;
+        this.chefName = chefname;
     }
 
     public String toString() {
@@ -71,6 +74,10 @@ public class Meal implements Parcelable {
     @Override
     public int describeContents() {
         return 0;
+    }
+
+    public boolean equals(Meal other) {
+        return Objects.equals(name, other.name) && Objects.equals(mealType, other.mealType) && Objects.equals(cuisineType, other.cuisineType) && Objects.equals(ingredients, other.ingredients) && Objects.equals(allergies, other.allergies) && Objects.equals(cost, other.cost) && Objects.equals(desc, other.desc) && Objects.equals(chefName, other.chefName);
     }
 
     public String getName() {
