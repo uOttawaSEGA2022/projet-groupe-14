@@ -1,6 +1,11 @@
 package ca.uottawa.engineering.mealer.classes;
 
-public class Meal {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.Objects;
+
+public class Meal implements Parcelable {
 
     private String name;
     private String mealType;
@@ -9,9 +14,12 @@ public class Meal {
     private String allergies;
     private String cost;
     private String desc;
-    private String chefname;
+    private String chefName;
 
-    public Meal(String name, String cuisineType, String ingredients, String allergies, String cost, String desc,String chefname) {
+    public Meal() {
+    }
+
+    public Meal(String name, String cuisineType, String ingredients, String allergies, String cost, String desc, String chefname) {
         this.name = name;
         this.mealType = mealType;
         this.cuisineType = cuisineType;
@@ -19,7 +27,57 @@ public class Meal {
         this.allergies = allergies;
         this.cost = cost;
         this.desc = desc;
-        this.chefname = chefname;
+        this.chefName = chefname;
+    }
+
+    public String toString() {
+        return String.format("%s: %s", name, chefName);
+    }
+
+    // Parcelable Things
+
+    protected Meal(Parcel in) {
+        this.name = in.readString();
+        this.mealType = in.readString();
+        this.cuisineType = in.readString();
+        this.ingredients = in.readString();
+        this.allergies = in.readString();
+        this.cost = in.readString();
+        this.desc = in.readString();
+        this.chefName = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(name);
+        parcel.writeString(mealType);
+        parcel.writeString(cuisineType);
+        parcel.writeString(ingredients);
+        parcel.writeString(allergies);
+        parcel.writeString(cost);
+        parcel.writeString(desc);
+        parcel.writeString(chefName);
+    }
+
+    public static final Creator<Meal> CREATOR = new Creator<Meal>() {
+        @Override
+        public Meal createFromParcel(Parcel in) {
+            return new Meal(in);
+        }
+
+        @Override
+        public Meal[] newArray(int size) {
+            return new Meal[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public boolean equals(Meal other) {
+        return Objects.equals(name, other.name) && Objects.equals(mealType, other.mealType) && Objects.equals(cuisineType, other.cuisineType) && Objects.equals(ingredients, other.ingredients) && Objects.equals(allergies, other.allergies) && Objects.equals(cost, other.cost) && Objects.equals(desc, other.desc) && Objects.equals(chefName, other.chefName);
     }
 
     public String getName() {
@@ -78,4 +136,11 @@ public class Meal {
         this.desc = desc;
     }
 
+    public String getChefName() {
+        return chefName;
+    }
+
+    public void setChefName(String chefName) {
+        this.chefName = chefName;
+    }
 }

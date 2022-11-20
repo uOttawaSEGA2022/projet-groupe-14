@@ -10,10 +10,6 @@ public class Chef extends User {
     private String cheque;
     private String description;
 
-    // TODO: garbage system, must fix
-    // if suspension == 0, no ban
-    // if suspension == 1, permanent ban
-    // else, banned until date
     private Date suspension;
 
     /**
@@ -41,18 +37,10 @@ public class Chef extends User {
         // Get meal list from firebase
     }
 
-    public void addMeal(String name, String mealType, String cuisineType, String ingredients, String allergies, String cost, String desc,String chefname) {
-        Meal meal = new Meal(name, cuisineType, ingredients, allergies, cost, desc,chefname);
-        menu.add(meal);
-    };
-
-    public void addToProposed(Meal meal) {};
-
-    // meal must not be in the proposed meals list
-    public void deleteMealFromMenu(Meal meal) {};
-
-
-    public void deleteFromProposed(Meal meal) {};
+    // Check if banned
+    public boolean isSuspended() {
+        return getSuspension().getTime() > new Date().getTime();
+    }
 
     // TODO: see if it's possible to replace this with an image
     public String getCheque() {

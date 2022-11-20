@@ -12,39 +12,43 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
+import ca.uottawa.engineering.mealer.classes.Complaint;
 import ca.uottawa.engineering.mealer.classes.Meal;
 
-public class MenuPage extends AppCompatActivity {
+public class ProposedMeals extends AppCompatActivity {
 
-    private final String TAG = "menu-page";
+    private final String TAG = "proposed-meals";
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    private ArrayList<Meal> meals = new ArrayList<>();
+    private ArrayList<Meal> proposedMeals = new ArrayList<>();
     ArrayAdapter<Meal> adapter;
     ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_page);
+        setContentView(R.layout.activity_proposed_meals_page);
 
-        retrieveMenu();
+        retrieveProposedMenu();
 
-        listView = (ListView) findViewById(R.id.menulist);
-        Log.i(TAG, String.valueOf(meals.size()));
+        listView = (ListView) findViewById(R.id.proposedMealsList);
+        Log.i(TAG, String.valueOf(proposedMeals.size()));
 
         adapter = new ArrayAdapter<Meal>
-                (this, android.R.layout.simple_list_item_1, meals);
+                (this, android.R.layout.simple_list_item_1, proposedMeals);
 
         listView.setAdapter(adapter);
         listView.setClickable(true);
@@ -64,9 +68,10 @@ public class MenuPage extends AppCompatActivity {
         this.recreate();
     }
 
-    public void retrieveMenu() {
+    public void retrieveProposedMenu() {
 
-        db.collection("users/" + mAuth.getUid() + "/menu/")
+        // restrict to current chef's meals?
+        db.collection("propMeals")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -74,9 +79,18 @@ public class MenuPage extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
-                                Meal meal = document.toObject(Meal.class);
-                                meals.add(meal);
-                                adapter.notifyDataSetChanged();
+
+                                // get meal from reference
+                                DocumentReference mealRef = (DocumentReference) document.get("mealRef");
+                                mealRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                        Log.d(TAG, documentSnapshot.getId() + " => " + documentSnapshot.getData());
+                                        Meal meal = documentSnapshot.toObject(Meal.class);
+                                        proposedMeals.add(meal);
+                                        adapter.notifyDataSetChanged();
+                                    }
+                                });
                             }
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
@@ -87,7 +101,7 @@ public class MenuPage extends AppCompatActivity {
     }
 
     private void switch_page(Meal meal) {
-        Intent switchActivityIntent = new Intent(this, MealUi.class);
+        Intent switchActivityIntent = new Intent(this, pruposedMealUi.class);
         switchActivityIntent.putExtra("meal", meal);
 
         startActivity(switchActivityIntent);

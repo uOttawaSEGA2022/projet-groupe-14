@@ -1,27 +1,24 @@
 package ca.uottawa.engineering.mealer;
 
 import android.content.Context;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.test.platform.app.InstrumentationRegistry;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import static org.junit.Assert.*;
-
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.util.concurrent.Executor;
+import org.junit.Test;
 
+// TODO: test async, await, etc and wait for method to finish
 public class SignInTest {
 
     @Test

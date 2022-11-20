@@ -35,6 +35,7 @@ public class AdminPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_page);
+
         retrieveComplaints();
 
         listView = (ListView) findViewById(R.id.list);
@@ -56,11 +57,9 @@ public class AdminPage extends AppCompatActivity {
     }
 
     @Override
-    public void onRestart()
-    {
+    public void onRestart() {
         super.onRestart();
-        finish();
-        startActivity(getIntent());
+        this.recreate();
     }
 
     private void switch_page(Complaint complaint) {

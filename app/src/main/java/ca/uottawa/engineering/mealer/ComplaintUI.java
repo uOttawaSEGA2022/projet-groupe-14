@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.concurrent.TimeUnit;
 
 import ca.uottawa.engineering.mealer.classes.Complaint;
 
@@ -38,7 +39,7 @@ public class ComplaintUI extends AppCompatActivity {
     }
 
     // Suspend button
-    public void suspend(View view) {
+    public void suspend(View view) throws InterruptedException {
         int day = datePicker.getDayOfMonth();
         int month = datePicker.getMonth();
         int year =  datePicker.getYear();
@@ -49,19 +50,20 @@ public class ComplaintUI extends AppCompatActivity {
     }
 
     // permSuspend button
-    public void permSuspend(View view) {
+    public void permSuspend(View view) throws InterruptedException {
         complaint.perm_suspend();
         go_back();
     }
 
     // permSuspend button
-    public void dismissComplaint(View view) {
+    public void dismissComplaint(View view) throws InterruptedException {
         complaint.dismiss();
         go_back();
     }
 
     // Go back to adminPage
-    public void go_back(){
+    public void go_back() throws InterruptedException {
+        TimeUnit.SECONDS.sleep(1); // Sometimes it goes too fast and the database doesn't update fast enough
         onBackPressed();
     }
 }

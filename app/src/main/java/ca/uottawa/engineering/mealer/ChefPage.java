@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ListView;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -72,11 +72,16 @@ public class ChefPage extends AppCompatActivity {
 
         if (date.getTime() <= new Date().getTime()) {
             suspension = "not suspended";
-        } else if (time < 90000000000L) {
-            suspension = "permanently suspended";
         } else {
             long days = (date.getTime() - new Date().getTime()) / (24 * 60 * 60 * 1000);
             suspension = String.format("suspended for %s days", days);
+            Button menuButton = (Button) findViewById(R.id.myMenuButton);
+            Button pMenuButton = (Button) findViewById(R.id.myProposedMealsButton);
+            Button addMealButon = (Button) findViewById(R.id.addMealButton);
+
+            menuButton.setEnabled(false);
+            pMenuButton.setEnabled(false);
+            addMealButon.setEnabled(false);
         }
 
 
@@ -94,11 +99,11 @@ public class ChefPage extends AppCompatActivity {
         startActivity(switchActivityIntent);
     }
     public void onclickadd(View view){
-        Intent switchActivityIntent = new Intent(this, Proposedmeals.class);
+        Intent switchActivityIntent = new Intent(this, ProposedMeals.class);
         startActivity(switchActivityIntent);
     }
     public void onclickaddmeal(View view){
-        Intent switchActivityIntent = new Intent(this, Addmeal.class);
+        Intent switchActivityIntent = new Intent(this, AddMeal.class);
         startActivity(switchActivityIntent);
     }
 }
