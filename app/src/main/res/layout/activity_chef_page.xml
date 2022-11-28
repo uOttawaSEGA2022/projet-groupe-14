@@ -4,84 +4,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#031636"
-    tools:context=".ChefPage">
+    android:background="@color/white"
+    tools:context=".ChefPage"
+    >
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/logoutButtonChefPage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
+        android:backgroundTint="@color/white"
+        android:drawableTop="@drawable/exit"
         android:onClick="logoutUser"
+        android:textColor="@color/black"
         android:text="Log Out"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.831" />
+        app:layout_constraintStart_toEndOf="@+id/addMealButton"
+        app:layout_constraintTop_toTopOf="@+id/addMealButton" />
 
     <TextView
         android:id="@+id/chefPageText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:text="Name of the chef"
-        android:textColor="#FDFDFD"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/logoutButtonChefPage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:text="signed as"
+        android:textColor="#ababab"
+        android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.101" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/myMenuButton"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="120dp"
+        android:backgroundTint="@color/white"
+        android:drawableTop="@drawable/menu"
+        android:onClick="onclickMenu"
+        android:text="My menu"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/myProposedMealsButton"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:backgroundTint="@color/white"
+        android:drawableTop="@drawable/cooking"
+        android:onClick="onclickadd"
+        android:text="My proposed meals"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/myMenuButton"
+        app:layout_constraintTop_toTopOf="@+id/myMenuButton" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/addMealButton"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/white"
+        android:drawableTop="@drawable/sushi"
+        android:onClick="onclickaddmeal"
+        android:text="Add meal"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myMenuButton" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinssemibold"
+        android:paddingTop="20dp"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:text="Welcome!"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_width="163dp"
+        android:layout_height="148dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <Button
-        android:id="@+id/myMenuButton"
-        android:layout_width="198dp"
-        android:layout_height="53dp"
-        android:onClick="onclickMenu"
-        android:text="My menu"
-        app:layout_constraintBottom_toTopOf="@+id/logoutButtonChefPage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chefPageText"
-        app:layout_constraintVertical_bias="0.339" />
-
-    <Button
-        android:id="@+id/myProposedMealsButton"
-        android:layout_width="198dp"
-        android:layout_height="wrap_content"
-        android:onClick="onclickadd"
-        android:text="My proposed meals"
-        app:layout_constraintBottom_toTopOf="@+id/logoutButtonChefPage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myMenuButton"
-        app:layout_constraintVertical_bias="0.103" />
-
-    <Button
-        android:id="@+id/addMealButton"
-        android:layout_width="198dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="5dp"
-        android:onClick="onclickaddmeal"
-        android:text="Add meal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myProposedMealsButton" />
+        app:srcCompat="@drawable/chef" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

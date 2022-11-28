@@ -50,6 +50,7 @@
         android:drawableStart="@drawable/ic_lock"
         android:ems="12"
         android:hint="Password"
+        android:textColor="@color/black"
         android:textColorHint="#a3a3a2"
         android:inputType="textPassword"
         android:textSize="23sp"
