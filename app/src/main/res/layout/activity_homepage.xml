@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#031636"
+    android:background="@color/white"
     tools:context=".Homepage">
 
     <Button
@@ -25,7 +25,7 @@
         android:layout_height="45dp"
         android:layout_marginBottom="12dp"
         android:text="Welcome !\n Retrieving data..."
-        android:textColor="#FDFDFD"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/logoutButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

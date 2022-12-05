@@ -21,6 +21,7 @@
         <TextView
             android:id="@+id/nameTextClient"
             style="@style/basictext"
+            android:layout_marginLeft="15dp"
             android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,6 +40,7 @@
         <TextView
             android:id="@+id/NicknameTextClient"
             style="@style/basictext"
+            android:layout_marginLeft="15dp"
             android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,6 +58,7 @@
         <TextView
             android:id="@+id/EmailTextClient"
             style="@style/basictext"
+            android:layout_marginLeft="15dp"
             android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,10 +76,11 @@
         <TextView
             android:id="@+id/PasswordTextClient"
             style="@style/basictext"
-            android:textColor="@color/black"
+            android:layout_marginLeft="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Password" />
+            android:text="Password:"
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/PasswordEditClient"
@@ -91,10 +95,11 @@
         <TextView
             android:id="@+id/AdressTextClient"
             style="@style/basictext"
+            android:layout_marginLeft="15dp"
             android:layout_width="match_parent"
-            android:textColor="@color/black"
             android:layout_height="wrap_content"
-            android:text="Adress" />
+            android:text="Adress:"
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/AdressEditClient"
@@ -108,10 +113,11 @@
         <TextView
             android:id="@+id/CardNumber"
             style="@style/basictext"
+            android:layout_marginLeft="15dp"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:textColor="@color/black"
-            android:text="Card Number" />
+            android:text="Card Number:"
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/CardNumberEdit"
@@ -130,20 +136,21 @@
             <TextView
                 android:id="@+id/ExpirationDate"
                 style="@style/basictext"
+                android:layout_marginLeft="15dp"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/black"
-                android:text="Expiration Date" />
+                android:text="Expiration Date:"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/CVV"
                 style="@style/basictext"
                 android:layout_width="wrap_content"
-                android:textColor="@color/black"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="CVV" />
+                android:text="CVV:"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
