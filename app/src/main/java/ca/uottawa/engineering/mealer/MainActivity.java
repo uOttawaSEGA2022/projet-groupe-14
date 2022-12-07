@@ -74,6 +74,10 @@ public class MainActivity extends AppCompatActivity {
                 switchActivityIntent = new Intent(this, AdminPage.class);
                 startActivity(switchActivityIntent);
                 break;
+            case "client":
+                switchActivityIntent = new Intent(this,Clientpage.class);
+                startActivity(switchActivityIntent);
+                break;
         }
     }
 
