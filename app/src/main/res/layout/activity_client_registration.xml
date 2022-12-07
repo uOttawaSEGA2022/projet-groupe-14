@@ -8,30 +8,32 @@
     android:background="@color/white">
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="411dp"
+        android:layout_height="527dp"
         android:background="@color/white"
         android:orientation="vertical"
-        android:paddingTop="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/imageView8">
 
         <TextView
             android:id="@+id/nameTextClient"
             style="@style/basictext"
-            android:layout_marginLeft="15dp"
-            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name:" />
+            android:layout_marginLeft="15dp"
+            android:text="Name:"
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/NameEditClient"
             android:layout_width="match_parent"
+            android:hint="  Name"
+            android:textColorHint="@color/grey_font"
             android:layout_height="30dp"
             android:layout_gravity="center"
+            android:textColor="@color/black"
             android:layout_marginHorizontal="20dp"
             android:background="@drawable/edittext_design"
             android:ems="10"
@@ -40,15 +42,18 @@
         <TextView
             android:id="@+id/NicknameTextClient"
             style="@style/basictext"
-            android:layout_marginLeft="15dp"
-            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nickname:" />
+            android:layout_marginLeft="15dp"
+            android:text="Nickname:"
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/NicknameEditClient"
             android:layout_width="match_parent"
+            android:textColor="@color/black"
+            android:hint="  What should everyone call you"
+            android:textColorHint="@color/grey_font"
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginHorizontal="20dp"
@@ -58,17 +63,20 @@
         <TextView
             android:id="@+id/EmailTextClient"
             style="@style/basictext"
-            android:layout_marginLeft="15dp"
-            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email:" />
+            android:layout_marginLeft="15dp"
+            android:text="Email:"
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/EmailEditClient"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_gravity="center"
+            android:hint="  something@mail.com"
+            android:textColorHint="@color/grey_font"
+            android:textColor="@color/black"
             android:layout_marginHorizontal="20dp"
             android:background="@drawable/edittext_design"
             android:inputType="textPersonName" />
@@ -76,9 +84,9 @@
         <TextView
             android:id="@+id/PasswordTextClient"
             style="@style/basictext"
-            android:layout_marginLeft="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
             android:text="Password:"
             android:textColor="@color/black" />
 
@@ -86,7 +94,10 @@
             android:id="@+id/PasswordEditClient"
             android:layout_width="match_parent"
             android:layout_height="30dp"
+            android:hint="  Passeword "
+            android:textColorHint="@color/grey_font"
             android:layout_gravity="center"
+            android:textColor="@color/black"
             android:layout_marginHorizontal="20dp"
             android:background="@drawable/edittext_design"
             android:inputType="textPassword" />
@@ -95,16 +106,19 @@
         <TextView
             android:id="@+id/AdressTextClient"
             style="@style/basictext"
-            android:layout_marginLeft="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Adress:"
+            android:layout_marginLeft="15dp"
+            android:text="Address:"
             android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/AdressEditClient"
             android:layout_width="match_parent"
             android:layout_height="30dp"
+            android:textColor="@color/black"
+            android:hint="  Address"
+            android:textColorHint="@color/grey_font"
             android:layout_gravity="center"
             android:layout_marginHorizontal="20dp"
             android:background="@drawable/edittext_design"
@@ -113,9 +127,9 @@
         <TextView
             android:id="@+id/CardNumber"
             style="@style/basictext"
-            android:layout_marginLeft="15dp"
             android:layout_width="match_parent"
             android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
             android:text="Card Number:"
             android:textColor="@color/black" />
 
@@ -123,7 +137,10 @@
             android:id="@+id/CardNumberEdit"
             android:layout_width="match_parent"
             android:layout_height="30dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey_font"
             android:layout_gravity="center"
+            android:hint="  ........"
             android:layout_marginHorizontal="20dp"
             android:background="@drawable/edittext_design"
             android:inputType="textPersonName" />
@@ -136,9 +153,9 @@
             <TextView
                 android:id="@+id/ExpirationDate"
                 style="@style/basictext"
-                android:layout_marginLeft="15dp"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
                 android:layout_weight="1"
                 android:text="Expiration Date:"
                 android:textColor="@color/black" />
@@ -163,6 +180,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginHorizontal="20dp"
+                android:hint="  02/45"
+                android:textColorHint="@color/grey_font"
+                android:textColor="@color/black"
                 android:layout_weight="1"
                 android:background="@drawable/edittext_design"
                 android:inputType="date" />
@@ -171,7 +191,10 @@
                 android:id="@+id/CVVnum"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
+                android:textColor="@color/black"
                 android:layout_marginHorizontal="25dp"
+                android:hint="  CVV"
+                android:textColorHint="@color/grey_font"
                 android:layout_weight="1"
                 android:background="@drawable/edittext_design"
                 android:inputType="number" />
@@ -182,10 +205,10 @@
             android:id="@+id/signup"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:background="@drawable/custom_button"
             android:backgroundTint="@color/black"
             android:onClick="registerclick"
-            android:layout_gravity="center"
             android:text="Register"
             android:textColor="@color/white" />
 
@@ -198,5 +221,27 @@
             android:textColor="#ff1930" />
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:srcCompat="@drawable/dude_eating" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome Aboard!"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppinssemibold"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

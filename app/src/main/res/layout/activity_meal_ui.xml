@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MealUi">
 
     <TextView
@@ -18,20 +19,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/DeletePMeal"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:text="Delete Meal"
+        android:background="@drawable/custom_button"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppinssemibold"
         android:onClick="deleteMeal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nomDuMeal" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Addtoprup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add to my pruposed meal"
+        android:background="@drawable/custom_button"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
         android:onClick="addToProposedMeals"
         android:layout_marginLeft="10dp"
         app:layout_constraintStart_toEndOf="@+id/DeletePMeal"
