@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -42,6 +44,14 @@ public class Clientpage extends AppCompatActivity {
         listview = (ListView)findViewById(R.id.mealList);
         adapter = new CustomBaseAdapter(getApplicationContext(),meals);
         listview.setAdapter(adapter);
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Meal meal= (Meal) adapterView.getItemAtPosition(i);
+                Log.d(TAG,"clicked");
+            }
+        });
+
     }
     public void retrieveProposedMenu() {
 
