@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/client_choice"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Clientpage">
@@ -10,21 +11,38 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/poppinsbold"
-        android:textSize="25dp"
+        android:text="Welcome"
         android:textColor="@color/black"
+        android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="413dp"
+        android:layout_height="602dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ListView
+            android:id="@+id/cllient_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="we are excited to have you back here"
-        android:layout_marginLeft="10dp"
+        android:layout_width="173dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="8dp"
+        android:text="PLEASE MAKE A CHOICE:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
@@ -40,6 +58,17 @@
         android:id="@+id/search_bar"
         android:layout_width="409dp"
         android:layout_height="40dp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/Client_choice"
+        android:layout_width="403dp"
+        android:layout_height="43dp"
+        android:background="@drawable/edittext_design"
+        android:hint="                      Put your choice here!!"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
