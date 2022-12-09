@@ -62,16 +62,24 @@ public class MealListUi extends AppCompatActivity {
                     }
                 });
     }
+
     public void addToOrderedMeals(View view) throws InterruptedException {
-        Map<String,String> pMeal = new HashMap<>();
-        pMeal.put("chefName", meal.getChefName());
+        Map<String,Object> orderedMeal = new HashMap<>();
+        orderedMeal.put("chefName", meal.getChefName());
+        orderedMeal.put("meal", mealRef);
 
         db.collection("orderedMeals").document()
-                .set(pMeal)
+                .set(orderedMeal)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d(TAG, "DocumentSnapshot successfully written!");
+                        Context context = getApplicationContext();
+                        CharSequence text = "Ordered Meal successfully!";
+                        int duration = Toast.LENGTH_LONG;
+
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
