@@ -30,8 +30,16 @@
 
     <ListView
         android:id="@+id/mealList"
+        android:layout_width="406dp"
+        android:layout_height="583dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_bar" />
+
+    <SearchView
+        android:id="@+id/search_bar"
         android:layout_width="409dp"
-        android:layout_height="646dp"
+        android:layout_height="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
