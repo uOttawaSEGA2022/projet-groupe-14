@@ -1,8 +1,5 @@
 package ca.uottawa.engineering.mealer;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,21 +7,22 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import ca.uottawa.engineering.mealer.classes.Meal;
+import ca.uottawa.engineering.mealer.helpers.ClientHandler;
+import ca.uottawa.engineering.mealer.helpers.ClientSingleton;
 
 public class ClientMeal extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -35,6 +33,7 @@ public class ClientMeal extends AppCompatActivity {
     private String username;
     DocumentReference mealRef;
     private ArrayList<Meal> orderedmeals = new ArrayList<>();
+    private final ClientHandler clientHandler = ClientSingleton.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +42,13 @@ public class ClientMeal extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         meal = (Meal) extras.get("meal");
-        username = (String) extras.get("Username");
+        username = clientHandler.getClient().getName();
+
         TextView chefname = (TextView) findViewById(R.id.chefName);
 
         chefname.setText(meal.getChefName());
-
-
-
     }
+
     public void addToOrderedMeals(View view) throws InterruptedException {
         Map<String, Object> pMeal = new HashMap<>();
         pMeal.put("chefName", meal.getChefName());
