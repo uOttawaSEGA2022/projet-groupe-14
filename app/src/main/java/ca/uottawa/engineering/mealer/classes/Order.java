@@ -23,6 +23,7 @@ public class Order implements Parcelable {
     public Order(String chefName, String clientName, DocumentReference mealRef, String mealName, String state) {
         this.chefName = chefName;
         this.clientName = clientName;
+        this.mealRef = mealRef;
         this.mealName = mealName;
         this.state = state;
     }
