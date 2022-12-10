@@ -103,6 +103,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ordered meals"
+        android:onClick="chefOrderedList"
         android:backgroundTint="@color/black"
         android:layout_marginTop="330dp"
         app:layout_constraintEnd_toEndOf="parent"
