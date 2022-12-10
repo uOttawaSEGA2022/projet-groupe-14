@@ -77,12 +77,13 @@
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#C9DAEA"
         android:fontFamily="@font/poppinsbold"
         android:paddingTop="20dp"
-        android:textSize="30sp"
-        android:textColor="@color/white"
         android:text="Welcome!"
-        android:background="#C9DAEA"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
