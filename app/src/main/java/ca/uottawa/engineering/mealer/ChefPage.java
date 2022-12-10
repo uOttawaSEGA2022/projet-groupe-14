@@ -1,14 +1,14 @@
 package ca.uottawa.engineering.mealer;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -98,12 +98,19 @@ public class ChefPage extends AppCompatActivity {
         Intent switchActivityIntent = new Intent(this, MenuPage.class);
         startActivity(switchActivityIntent);
     }
-    public void onclickadd(View view){
+
+    public void onclickadd(View view) {
         Intent switchActivityIntent = new Intent(this, ProposedMeals.class);
         startActivity(switchActivityIntent);
     }
-    public void onclickaddmeal(View view){
+
+    public void onclickaddmeal(View view) {
         Intent switchActivityIntent = new Intent(this, AddMeal.class);
+        startActivity(switchActivityIntent);
+    }
+
+    public void chefOrderedList(View view) {
+        Intent switchActivityIntent = new Intent(this, ChefOrderedList.class);
         startActivity(switchActivityIntent);
     }
 }

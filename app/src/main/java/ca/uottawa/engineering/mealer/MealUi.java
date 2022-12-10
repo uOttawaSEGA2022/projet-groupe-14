@@ -117,6 +117,7 @@ public class MealUi extends AppCompatActivity {
         Map<String, Object> pMeal = new HashMap<>();
         pMeal.put("chefName", meal.getChefName());
         pMeal.put("mealRef", mealRef);
+        pMeal.put("mealName", meal.getName());
 
         db.collection("propMeals").document()
                 .set(pMeal)

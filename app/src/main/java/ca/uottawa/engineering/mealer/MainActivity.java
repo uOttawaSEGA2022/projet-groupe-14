@@ -3,11 +3,9 @@ package ca.uottawa.engineering.mealer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.view.View;
-
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +17,8 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.concurrent.ExecutionException;
+import ca.uottawa.engineering.mealer.helpers.ChefSingleton;
+import ca.uottawa.engineering.mealer.helpers.ClientSingleton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -67,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
     private void switch_page(String role,String username) {
         switch (role) {
             case "chef":
+                ChefSingleton.getInstance();
                 Intent switchActivityIntent = new Intent(this, ChefPage.class);
                 startActivity(switchActivityIntent);
                 break;
@@ -75,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(switchActivityIntent);
                 break;
             case "client":
-                switchActivityIntent = new Intent(this,Clientpage.class);
+                ClientSingleton.getInstance();
+                switchActivityIntent = new Intent(this, Clientpage.class);
                 Log.d("test1", username);
                 switchActivityIntent.putExtra("Username", username);
                 startActivity(switchActivityIntent);

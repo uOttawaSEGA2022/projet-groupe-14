@@ -1,18 +1,16 @@
 package ca.uottawa.engineering.mealer;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -28,7 +26,6 @@ import java.util.ArrayList;
 
 import ca.uottawa.engineering.mealer.adapter.CustomBaseAdapter;
 import ca.uottawa.engineering.mealer.classes.Meal;
-import ca.uottawa.engineering.mealer.helpers.ClientHandler;
 
 public class Clientpage extends AppCompatActivity {
     ListView listview;
@@ -39,9 +36,6 @@ public class Clientpage extends AppCompatActivity {
 
     private ArrayList<Meal> meals = new ArrayList<>();
     private CustomBaseAdapter adapter;
-    String username;
-    String test = "";
-    ClientHandler handler = new ClientHandler(mAuth);
 
     SearchView searchbar;
 
@@ -49,9 +43,6 @@ public class Clientpage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clientpage);
-        Bundle extras = getIntent().getExtras();
-        username = (String) extras.get("Username");
-        Log.d(TAG, username);
         searchbar = findViewById(R.id.search_bar);
         retrieveProposedMenu();
         Log.d(TAG,String.valueOf(meals.size()));
@@ -91,7 +82,6 @@ public class Clientpage extends AppCompatActivity {
     }
     public void retrieveProposedMenu() {
 
-        // restrict to current chef's meals?
         db.collection("propMeals")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -123,7 +113,6 @@ public class Clientpage extends AppCompatActivity {
     private void switch_page(Meal meal) {
         Intent switchActivityIntent = new Intent(this, ClientMeal.class);
         switchActivityIntent.putExtra("meal", meal);
-        switchActivityIntent.putExtra("Username",username);
         startActivity(switchActivityIntent);
     }
 

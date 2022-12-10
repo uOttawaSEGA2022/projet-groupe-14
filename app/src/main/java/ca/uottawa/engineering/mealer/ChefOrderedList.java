@@ -23,42 +23,42 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-import ca.uottawa.engineering.mealer.classes.Meal;
+import ca.uottawa.engineering.mealer.classes.Order;
 import ca.uottawa.engineering.mealer.helpers.ChefHandler;
 import ca.uottawa.engineering.mealer.helpers.ChefSingleton;
 
-public class ProposedMeals extends AppCompatActivity {
-
-    private final String TAG = "proposed-meals";
+public class ChefOrderedList extends AppCompatActivity {
+    private final String TAG = "chef-ordered-meals";
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private ChefHandler chefHandler = ChefSingleton.getInstance();
 
-    private ArrayList<Meal> proposedMeals = new ArrayList<>();
-    ArrayAdapter<Meal> adapter;
+    private ArrayList<Order> orders = new ArrayList<>();
+
+    ArrayAdapter<Order> adapter;
     ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_proposed_meals_page);
+        setContentView(R.layout.activity_orderedlist);
 
-        retrieveProposedMenu();
+        retrieveOrderedMeals();
 
-        listView = (ListView) findViewById(R.id.proposedMealsList);
-        Log.i(TAG, String.valueOf(proposedMeals.size()));
+        listView = (ListView) findViewById(R.id.chefOrderedMealList);
+        Log.i(TAG, String.valueOf(orders.size()));
 
-        adapter = new ArrayAdapter<Meal>
-                (this, android.R.layout.simple_list_item_1, proposedMeals);
+        adapter = new ArrayAdapter<Order>
+                (this, android.R.layout.simple_list_item_1, orders);
 
         listView.setAdapter(adapter);
         listView.setClickable(true);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Meal meal= (Meal) adapterView.getItemAtPosition(i);
-                switch_page(meal);
+                Order order = (Order) adapterView.getItemAtPosition(i);
+                switch_page(order);
             }
         });
     }
@@ -69,10 +69,8 @@ public class ProposedMeals extends AppCompatActivity {
         this.recreate();
     }
 
-    public void retrieveProposedMenu() {
-
-        // restrict to current chef's meals?
-        db.collection("propMeals")
+    private void retrieveOrderedMeals() {
+        db.collection("orderedMeals")
                 .whereEqualTo("chefName", chefHandler.getChef().getName())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -83,13 +81,16 @@ public class ProposedMeals extends AppCompatActivity {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
 
                                 // get meal from reference
-                                DocumentReference mealRef = (DocumentReference) document.get("mealRef");
-                                mealRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                DocumentReference orderRef = (DocumentReference) document.get("mealRef");
+                                orderRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                                     @Override
                                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                                         Log.d(TAG, documentSnapshot.getId() + " => " + documentSnapshot.getData());
-                                        Meal meal = documentSnapshot.toObject(Meal.class);
-                                        proposedMeals.add(meal);
+                                        Order order = documentSnapshot.toObject(Order.class);
+                                        order.setMealName(document.get("mealName").toString());
+                                        order.setClientName(document.get("clientName").toString());
+                                        order.setState(document.get("state").toString());
+                                        orders.add(order);
                                         adapter.notifyDataSetChanged();
                                     }
                                 });
@@ -99,13 +100,14 @@ public class ProposedMeals extends AppCompatActivity {
                         }
                     }
                 });
-
     }
 
-    private void switch_page(Meal meal) {
+    private void switch_page(Order order) {
+        // TODO: currently switching to wrong activity
         Intent switchActivityIntent = new Intent(this, pruposedMealUi.class);
-        switchActivityIntent.putExtra("meal", meal);
+        switchActivityIntent.putExtra("order", order);
 
         startActivity(switchActivityIntent);
     }
+
 }
