@@ -56,5 +56,15 @@
       <option name="name" value="maven" />
       <option name="url" value="file:/$PROJECT_DIR$/../../this%20time/projet-groupe-14/app/https/jitpack.io" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven" />
+      <option name="name" value="maven" />
+      <option name="url" value="file:$PROJECT_DIR$/../../../../SEG%202505/Projet/livrable%201/projet-groupe-14/https/jitpack.io" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven" />
+      <option name="name" value="maven" />
+      <option name="url" value="file:$PROJECT_DIR$/../../../../SEG%202505/Projet/livrable%201/projet-groupe-14/app/https/jitpack.io" />
+    </remote-repository>
   </component>
 </project>
