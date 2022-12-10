@@ -53,12 +53,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textView18"
         tools:ignore="MissingConstraints" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button5"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginBottom="64dp"
+        android:background="@drawable/custom_button"
         android:backgroundTint="@color/black"
+        android:textColor="@color/white"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
