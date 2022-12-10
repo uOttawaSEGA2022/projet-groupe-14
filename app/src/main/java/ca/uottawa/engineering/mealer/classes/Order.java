@@ -67,4 +67,44 @@ public class Order implements Parcelable {
         return 0;
     }
 
+    public String getChefName() {
+        return chefName;
+    }
+
+    public void setChefName(String chefName) {
+        this.chefName = chefName;
+    }
+
+    public String getClientName() {
+        return clientName;
+    }
+
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
+    }
+
+    public DocumentReference getMealRef() {
+        return mealRef;
+    }
+
+    public void setMealRef(DocumentReference mealRef) {
+        this.mealRef = mealRef;
+    }
+
+    public String getMealName() {
+        return mealName;
+    }
+
+    public void setMealName(String mealName) {
+        this.mealName = mealName;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
 }
