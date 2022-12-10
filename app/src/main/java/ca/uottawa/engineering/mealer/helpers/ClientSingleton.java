@@ -10,8 +10,6 @@ public final class ClientSingleton {
     private ClientSingleton() {
     }
 
-    ;
-
     public static ClientHandler getInstance() {
         if (clientHandler == null) {
             clientHandler = new ClientHandler(mAuth);
