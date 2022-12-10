@@ -16,7 +16,7 @@ import ca.uottawa.engineering.mealer.classes.Meal;
 public class MealHandler {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private final String TAG = "Chef-Handler";
+    private final String TAG = "Meal-Handler";
 
     private DocumentReference mealRef;
     private Meal meal;
@@ -26,7 +26,7 @@ public class MealHandler {
 
     public MealHandler(String mealName) {
         db.collection("propMeals")
-                .whereEqualTo("mealName", meal)
+                .whereEqualTo("mealName", mealName)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -35,7 +35,7 @@ public class MealHandler {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
                                 meal = document.toObject(Meal.class);
-                                mealRef = document.getReference();
+                                mealRef = (DocumentReference) document.get("mealRef");
                             }
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
