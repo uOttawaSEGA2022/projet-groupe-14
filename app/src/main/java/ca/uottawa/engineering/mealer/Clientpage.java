@@ -3,6 +3,7 @@ package ca.uottawa.engineering.mealer;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -54,7 +55,8 @@ public class Clientpage extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Meal meal= (Meal) adapterView.getItemAtPosition(i);
-                Log.d(TAG,"clicked");
+                meal = meals.get(i);
+                switch_page(meal);
             }
         });
 
@@ -110,5 +112,11 @@ public class Clientpage extends AppCompatActivity {
                     }
                 });
 
+    }
+    private void switch_page(Meal meal) {
+        Intent switchActivityIntent = new Intent(this, ClientMeal.class);
+        switchActivityIntent.putExtra("meal", meal);
+
+        startActivity(switchActivityIntent);
     }
 }

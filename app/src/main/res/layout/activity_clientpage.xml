@@ -5,7 +5,8 @@
     android:id="@+id/client_choice"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Clientpage">
+    tools:context=".Clientpage"
+    android:backgroundTint="@color/white">
 
     <TextView
         android:id="@+id/textView13"
@@ -20,21 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="413dp"
-        android:layout_height="602dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ListView
-            android:id="@+id/cllient_search"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
-
     <TextView
         android:id="@+id/textView14"
         android:layout_width="173dp"
@@ -46,30 +32,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
-    <ListView
-        android:id="@+id/mealList"
-        android:layout_width="406dp"
-        android:layout_height="583dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_bar" />
-
     <SearchView
         android:id="@+id/search_bar"
         android:layout_width="409dp"
         android:layout_height="40dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/textView14"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
 
-    <EditText
-        android:id="@+id/Client_choice"
-        android:layout_width="403dp"
-        android:layout_height="43dp"
-        android:background="@drawable/edittext_design"
-        android:hint="                      Put your choice here!!"
-        android:inputType="textPersonName"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+    </SearchView>
+
+    <ListView
+        android:id="@+id/mealList"
+        android:layout_width="406dp"
+        android:layout_height="583dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/search_bar">
+
+    </ListView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -56,7 +56,6 @@ public class ProposedMeals extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Meal meal= (Meal) adapterView.getItemAtPosition(i);
-
                 switch_page(meal);
             }
         });
