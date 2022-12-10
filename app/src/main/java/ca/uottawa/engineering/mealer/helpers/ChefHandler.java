@@ -1,12 +1,15 @@
-package ca.uottawa.engineering.mealer.handlers;
+package ca.uottawa.engineering.mealer.helpers;
 
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -26,6 +29,22 @@ public class ChefHandler {
      * Creates a chef handler instance without containing chef or chef ref.
      */
     public ChefHandler() {
+    }
+
+    /**
+     * Creates ClientHandler and automatically retrieves Client and Client ref from firebase.
+     *
+     * @param mAuth
+     */
+    public ChefHandler(FirebaseAuth mAuth) {
+        chefRef = db.collection("users").document(mAuth.getUid());
+
+        chefRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                chef = documentSnapshot.toObject(Chef.class);
+            }
+        });
     }
 
     /**

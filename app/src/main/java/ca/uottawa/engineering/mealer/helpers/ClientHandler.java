@@ -1,4 +1,4 @@
-package ca.uottawa.engineering.mealer.handlers;
+package ca.uottawa.engineering.mealer.helpers;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;

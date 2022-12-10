@@ -28,7 +28,7 @@ import java.util.ArrayList;
 
 import ca.uottawa.engineering.mealer.adapter.CustomBaseAdapter;
 import ca.uottawa.engineering.mealer.classes.Meal;
-import ca.uottawa.engineering.mealer.handlers.ClientHandler;
+import ca.uottawa.engineering.mealer.helpers.ClientHandler;
 
 public class Clientpage extends AppCompatActivity {
     ListView listview;
