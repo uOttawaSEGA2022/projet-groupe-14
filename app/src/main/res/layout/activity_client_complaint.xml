@@ -4,32 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C9DAEA"
+    android:background="@color/text_shadow_white"
     tools:context=".ClientComplaintActivity">
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="395dp"
-        android:layout_height="47dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="116dp"
-        android:text="WE ARE SORRY ABOUT THIS INCONVENIENCE!!"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppinssemibold"
+        android:text="WE ARE SORRY ABOUT THIS INCONVENIENCE!"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="349dp"
         android:layout_height="26dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/poppinssemibold"
         android:text="Can you tell us more about it :"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.274"
+        app:layout_constraintHorizontal_bias="0.258"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17"
         tools:ignore="MissingConstraints" />
@@ -40,13 +43,12 @@
         android:layout_height="216dp"
         android:layout_gravity="center"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/edittext_design"
-        android:hint="   Put your complaint here!! "
         android:inputType="textPersonName"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18"
         tools:ignore="MissingConstraints" />
@@ -55,13 +57,23 @@
         android:id="@+id/button5"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginBottom="64dp"
         android:backgroundTint="@color/black"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sadface" />
 </androidx.constraintlayout.widget.ConstraintLayout>
