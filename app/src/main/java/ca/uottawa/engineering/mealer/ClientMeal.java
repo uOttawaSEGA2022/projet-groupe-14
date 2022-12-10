@@ -30,8 +30,9 @@ public class ClientMeal extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
-    private final String TAG = "meal-UI";
+    private final String TAG = "Clientmeal";
     private  Meal meal;
+    private String username;
     DocumentReference mealRef;
     private ArrayList<Meal> orderedmeals = new ArrayList<>();
 
@@ -42,32 +43,20 @@ public class ClientMeal extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         meal = (Meal) extras.get("meal");
+        username = (String) extras.get("Username");
         TextView chefname = (TextView) findViewById(R.id.chefName);
 
         chefname.setText(meal.getChefName());
 
-        db.collection("users/" +mAuth.getUid() + "/menu/")
-                .whereEqualTo("name", meal.getName())
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d(TAG, document.getId() + " => " + document.getData());
-                                mealRef = document.getReference();
-                            }
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
-                        }
-                    }
-                });
+
 
     }
     public void addToOrderedMeals(View view) throws InterruptedException {
         Map<String, Object> pMeal = new HashMap<>();
         pMeal.put("chefName", meal.getChefName());
-        pMeal.put("mealRef", mealRef);
+        pMeal.put("mealname",meal.getName());
+        pMeal.put("clientname",username);
+        pMeal.put("state","ordered");
 
         db.collection("orderedMeals").document()
                 .set(pMeal)

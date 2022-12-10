@@ -28,6 +28,7 @@ import java.util.ArrayList;
 
 import ca.uottawa.engineering.mealer.adapter.CustomBaseAdapter;
 import ca.uottawa.engineering.mealer.classes.Meal;
+import ca.uottawa.engineering.mealer.handlers.ClientHandler;
 
 public class Clientpage extends AppCompatActivity {
     ListView listview;
@@ -38,6 +39,9 @@ public class Clientpage extends AppCompatActivity {
 
     private ArrayList<Meal> meals = new ArrayList<>();
     private CustomBaseAdapter adapter;
+    String username;
+    String test = "";
+    ClientHandler handler = new ClientHandler(mAuth);
 
     SearchView searchbar;
 
@@ -45,6 +49,9 @@ public class Clientpage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clientpage);
+        Bundle extras = getIntent().getExtras();
+        username = (String) extras.get("Username");
+        Log.d(TAG, username);
         searchbar = findViewById(R.id.search_bar);
         retrieveProposedMenu();
         Log.d(TAG,String.valueOf(meals.size()));
@@ -116,7 +123,8 @@ public class Clientpage extends AppCompatActivity {
     private void switch_page(Meal meal) {
         Intent switchActivityIntent = new Intent(this, ClientMeal.class);
         switchActivityIntent.putExtra("meal", meal);
-
+        switchActivityIntent.putExtra("Username",username);
         startActivity(switchActivityIntent);
     }
+
 }

@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Will get role of user then call switch_page() to get the right homepage.
      */
-    private void login() {
+    private void login(String username) {
         String TAG = "role-login";
 
         DocumentReference docRef = db.collection("users").document(mAuth.getUid().toString());
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         role = (String) document.get("role");
-                        switch_page(role);
+                        switch_page(role,username);
                     } else {
                         Log.d(TAG, "No such document");
                     }
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
      * Switches to the right homepage based on user role.
      * @param role
      */
-    private void switch_page(String role) {
+    private void switch_page(String role,String username) {
         switch (role) {
             case "chef":
                 Intent switchActivityIntent = new Intent(this, ChefPage.class);
@@ -76,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "client":
                 switchActivityIntent = new Intent(this,Clientpage.class);
+                Log.d("test1", username);
+                switchActivityIntent.putExtra("Username", username);
                 startActivity(switchActivityIntent);
                 break;
         }
@@ -99,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
-                        login();
+                        login(username);
                     } else {
                         // Do something with error;
                         errorMessage("Could not login.");
