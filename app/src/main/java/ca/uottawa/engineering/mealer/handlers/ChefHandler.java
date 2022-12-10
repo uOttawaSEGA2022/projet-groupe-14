@@ -23,13 +23,30 @@ public class ChefHandler {
     private DocumentReference chefRef;
     private Chef chef;
 
+
+    /**
+     * Creates a chef handler instance without containing chef or chef ref.
+     */
+    public ChefHandler() {
+    }
+
     /**
      * Creates a chef handler instance containing the Chef object and a reference to it in firebase.
+     *
      * @param chefName
      */
     public ChefHandler(String chefName) {
-        db.collection("complaints")
-                .whereEqualTo("name", chefName) // will get self
+        retrieveChef(chefName);
+    }
+
+    /**
+     * Retrieves Chef and ChefRef given chef name.
+     *
+     * @param chefName
+     */
+    public void retrieveChef(String chefName) {
+        db.collection("users")
+                .whereEqualTo("name", chefName)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
