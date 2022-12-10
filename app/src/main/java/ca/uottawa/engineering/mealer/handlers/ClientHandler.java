@@ -16,9 +16,17 @@ public class ClientHandler {
     private DocumentReference clientRef;
     private Client client;
 
+    /**
+     * Creates ClientHandler but sets nothing.
+     */
     public ClientHandler() {
     }
 
+    /**
+     * Creates ClientHandler and automatically retrieves Client and Client ref from firebase.
+     *
+     * @param mAuth
+     */
     public ClientHandler(FirebaseAuth mAuth) {
         clientRef = db.collection("users").document(mAuth.getUid());
 
@@ -33,7 +41,7 @@ public class ClientHandler {
     /**
      * Updates firebase client with current client object values.
      */
-    public void updateChef() {
+    public void updateClient() {
         clientRef.set(client);
     }
 
