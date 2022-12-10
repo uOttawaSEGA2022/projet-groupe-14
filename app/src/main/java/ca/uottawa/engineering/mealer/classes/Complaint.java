@@ -31,6 +31,12 @@ public class Complaint implements Parcelable {
     public Complaint() {
     }
 
+    public Complaint(String chefName, DocumentReference chefRef) {
+        this.date_created = new Date();
+        this.chefName = chefName;
+        this.chefRef = chefRef;
+    }
+
     public Complaint(Date date_created, String chefName, DocumentReference chefRef) {
         this.date_created = date_created;
         this.chefName = chefName;
