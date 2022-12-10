@@ -6,4 +6,149 @@
     android:layout_height="match_parent"
     tools:context=".ClientRatingsActivity">
 
+    <EditText
+        android:id="@+id/editTextTextPersonName8"
+        android:layout_width="370dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/edittext_design"
+        android:ems="10"
+        android:hint=" enter a number between 1 and 5"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey_font"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppinssemibold"
+        android:text="How was your experience with us ?"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="370dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/edittext_design"
+        android:ems="10"
+        android:hint=" enter a number between 1 and 5"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey_font"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppinssemibold"
+        android:text="How was your picking ?"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/poppinssemibold"
+        android:text="Name of the chef"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/poppinssemibold"
+        android:text="How was your meal ?"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="130dp"
+        android:layout_height="116dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/chef" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/poppinssemibold"
+        android:text="Your feedback is important for us !"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="370dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/edittext_design"
+        android:ems="10"
+        android:hint=" enter a number between 1 and 5"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey_font"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button5"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="44dp"
+        android:text="Submit"
+        android:background="@drawable/custom_button"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8"
+        app:layout_constraintVertical_bias="0.031" />
 </androidx.constraintlayout.widget.ConstraintLayout>
