@@ -1,8 +1,5 @@
 package ca.uottawa.engineering.mealer;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +7,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -23,8 +23,9 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-import ca.uottawa.engineering.mealer.classes.Complaint;
 import ca.uottawa.engineering.mealer.classes.Meal;
+import ca.uottawa.engineering.mealer.helpers.ChefHandler;
+import ca.uottawa.engineering.mealer.helpers.ChefSingleton;
 
 public class ProposedMeals extends AppCompatActivity {
 
@@ -32,6 +33,7 @@ public class ProposedMeals extends AppCompatActivity {
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private ChefHandler chefHandler = ChefSingleton.getInstance();
 
     private ArrayList<Meal> proposedMeals = new ArrayList<>();
     ArrayAdapter<Meal> adapter;
