@@ -71,6 +71,7 @@ public class ProposedMeals extends AppCompatActivity {
 
         // restrict to current chef's meals?
         db.collection("propMeals")
+                .whereEqualTo("chefName", chefHandler.getChef().getName())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
