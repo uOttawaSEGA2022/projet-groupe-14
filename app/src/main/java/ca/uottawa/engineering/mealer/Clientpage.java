@@ -1,18 +1,16 @@
 package ca.uottawa.engineering.mealer;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -91,7 +89,6 @@ public class Clientpage extends AppCompatActivity {
     }
     public void retrieveProposedMenu() {
 
-        // restrict to current chef's meals?
         db.collection("propMeals")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -123,7 +120,6 @@ public class Clientpage extends AppCompatActivity {
     private void switch_page(Meal meal) {
         Intent switchActivityIntent = new Intent(this, ClientMeal.class);
         switchActivityIntent.putExtra("meal", meal);
-        switchActivityIntent.putExtra("Username",username);
         startActivity(switchActivityIntent);
     }
 
