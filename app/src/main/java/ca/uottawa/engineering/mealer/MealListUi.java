@@ -45,48 +45,6 @@ public class MealListUi extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         meal = (Meal) extras.get("meal");
 
-        db.collection("users/" +mAuth.getUid() + "/menu/")
-                .whereEqualTo("name", meal.getName())
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d(TAG, document.getId() + " => " + document.getData());
-                                mealRef = document.getReference();
-                            }
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
-                        }
-                    }
-                });
-    }
 
-    public void addToOrderedMeals(View view) throws InterruptedException {
-        Map<String,Object> orderedMeal = new HashMap<>();
-        orderedMeal.put("chefName", meal.getChefName());
-        orderedMeal.put("meal", mealRef);
-
-        db.collection("orderedMeals").document()
-                .set(orderedMeal)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "DocumentSnapshot successfully written!");
-                        Context context = getApplicationContext();
-                        CharSequence text = "Ordered Meal successfully!";
-                        int duration = Toast.LENGTH_LONG;
-
-                        Toast toast = Toast.makeText(context, text, duration);
-                        toast.show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error writing document", e);
-                    }
-                });
     }
 }
