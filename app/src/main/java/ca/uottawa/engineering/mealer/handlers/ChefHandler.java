@@ -63,6 +63,13 @@ public class ChefHandler {
                 });
     }
 
+    /**
+     * Updates firebase chef with current chef object values.
+     */
+    public void updateChef() {
+        chefRef.set(chef);
+    }
+
     public Chef getChef() {
         return chef;
     }
