@@ -74,36 +74,6 @@
         app:layout_constraintStart_toEndOf="@+id/textView24"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button2"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_weight="1"
-        android:background="@drawable/custom_button"
-        android:text="complaint"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
-        app:layout_constraintVertical_bias="0.168" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button3"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="100dp"
-        android:layout_weight="1"
-        android:background="@drawable/custom_button"
-        android:backgroundTint="@color/black"
-        android:text="Rate this meal"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView27" />
-
     <TextView
         android:id="@+id/textView26"
         android:layout_width="wrap_content"

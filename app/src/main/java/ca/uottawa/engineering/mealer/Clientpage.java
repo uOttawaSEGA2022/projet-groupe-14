@@ -115,5 +115,9 @@ public class Clientpage extends AppCompatActivity {
         switchActivityIntent.putExtra("meal", meal);
         startActivity(switchActivityIntent);
     }
+    public  void Onordered(View view){
+        Intent switchActivityIntent = new Intent(this, orderedmealsClient.class);
+        startActivity(switchActivityIntent);
+    }
 
 }

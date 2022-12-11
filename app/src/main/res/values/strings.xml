@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Mealer</string>
+    <string name="search_hint">Search here</string>
+
     <string-array name="ratings">
         <item>1</item>
         <item>2</item>

@@ -38,7 +38,11 @@
         android:layout_height="40dp"
         android:background="@drawable/custom_button"
         app:layout_constraintTop_toBottomOf="@+id/textView14"
+        android:backgroundTint="#8c8c8c"
         tools:ignore="MissingConstraints"
+        android:queryHint="@string/search_hint"
+        android:iconifiedByDefault="false"
+        android:searchHintIcon="@color/black"
         tools:layout_editor_absoluteX="0dp">
 
     </SearchView>
@@ -46,12 +50,25 @@
     <ListView
         android:id="@+id/mealList"
         android:layout_width="406dp"
-        android:layout_height="583dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_bar">
 
     </ListView>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:onClick="Onordered"
+        android:text="Ordered meals"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mealList" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
