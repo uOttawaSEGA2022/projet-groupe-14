@@ -49,6 +49,7 @@
         android:layout_height="wrap_content"
         android:text="Add Complaint"
         android:layout_marginLeft="50dp"
+        android:onClick="complain"
         android:backgroundTint="@color/white"
         android:layout_marginTop="50dp"
         android:textColor="@color/black"
