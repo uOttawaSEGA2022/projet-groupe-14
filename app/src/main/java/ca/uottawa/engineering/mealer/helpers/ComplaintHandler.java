@@ -41,10 +41,9 @@ public class ComplaintHandler {
      *
      * @param chefName
      */
-    public void createComplaint(String chefName) {
+    public void createComplaint(String chefName, DocumentReference chefRef) {
         ChefHandler chefHandler = new ChefHandler(chefName);
 
-        DocumentReference chefRef = chefHandler.getChefRef();
         complaint = new Complaint(chefName, chefRef);
 
         db.collection("complaints").document().set(complaint);
