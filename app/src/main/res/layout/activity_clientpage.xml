@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Clientpage"
-    android:backgroundTint="@color/white">
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/textView13"
@@ -36,6 +36,7 @@
         android:id="@+id/search_bar"
         android:layout_width="409dp"
         android:layout_height="40dp"
+        android:background="@drawable/custom_button"
         app:layout_constraintTop_toBottomOf="@+id/textView14"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp">

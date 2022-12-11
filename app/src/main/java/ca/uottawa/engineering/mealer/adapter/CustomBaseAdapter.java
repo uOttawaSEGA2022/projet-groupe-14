@@ -63,7 +63,7 @@ public class CustomBaseAdapter extends BaseAdapter {
         }
         else {
             for (Meal meal : searchlist) {
-                if (meal.getName().equals(text)) {
+                if (meal.getName().contains(text)) {
                     listmeal.clear();
                     listmeal.add(meal);
                 }

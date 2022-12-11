@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".chefProfileinfo">
+    tools:context=".chefProfileinfo"
+    android:background="@color/white">
 
     <ImageView
         android:id="@+id/imageView11"
@@ -14,7 +15,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/chef" />
+        app:srcCompat="@drawable/chef"
+        />
 
     <TextView
         android:id="@+id/chefNameprofile"
@@ -32,10 +34,11 @@
         android:id="@+id/Rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rate"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="50dp"
         android:backgroundTint="@color/black"
+        android:onClick="onRate"
+        android:text="Rate"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chefNameprofile" />
