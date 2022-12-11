@@ -79,6 +79,7 @@ public class ClientMeal extends AppCompatActivity {
     }
     public  void onClickProfile(View view){
         Intent switchActivityIntent = new Intent(this, chefProfileinfo.class);
+        switchActivityIntent.putExtra("chefname",meal.getChefName());
         startActivity(switchActivityIntent);
     }
     }
