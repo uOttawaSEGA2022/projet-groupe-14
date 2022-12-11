@@ -5,9 +5,10 @@
     android:id="@+id/orderedlist"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".orderedmealsClient">
+    tools:context=".ClientOrderedList">
 
     <ListView
+        android:id="@+id/clientOrderedList"
         android:layout_width="409dp"
         android:layout_height="729dp"
         app:layout_constraintEnd_toEndOf="parent"

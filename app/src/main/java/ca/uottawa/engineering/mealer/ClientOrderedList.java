@@ -1,12 +1,12 @@
 package ca.uottawa.engineering.mealer;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -21,30 +21,28 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 
 import ca.uottawa.engineering.mealer.classes.Order;
-import ca.uottawa.engineering.mealer.helpers.ChefHandler;
-import ca.uottawa.engineering.mealer.helpers.ChefSingleton;
 import ca.uottawa.engineering.mealer.helpers.ClientHandler;
 import ca.uottawa.engineering.mealer.helpers.ClientSingleton;
 
-public class orderedmealsClient extends AppCompatActivity {
-    private final String TAG = "client_ordered";
+public class ClientOrderedList extends AppCompatActivity {
+    private final String TAG = "client-ordered-list";
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private ClientHandler clientHandler = ClientSingleton.getInstance();
 
     private ArrayList<Order> orders = new ArrayList<>();
 
     ArrayAdapter<Order> adapter;
     ListView listView;
-    private  ClientHandler clientHandler = ClientSingleton.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_orderedmeals_client);
+        setContentView(R.layout.activity_client_ordered_meals);
         Log.d(TAG, clientHandler.getClient().getName());
         retrieveOrderedMeals();
-        listView = (ListView) findViewById(R.id.orderedlist);
+        listView = (ListView) findViewById(R.id.clientOrderedList);
 
         adapter = new ArrayAdapter<Order>
                 (this, android.R.layout.simple_list_item_1, orders);
@@ -58,9 +56,10 @@ public class orderedmealsClient extends AppCompatActivity {
         super.onRestart();
         this.recreate();
     }
+
     private void retrieveOrderedMeals() {
         db.collection("orderedMeals")
-                .whereEqualTo("chefName", clientHandler.getClient().getName())
+                .whereEqualTo("clientName", clientHandler.getClient().getName())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -79,6 +78,7 @@ public class orderedmealsClient extends AppCompatActivity {
                                         order.setClientName(document.get("clientName").toString());
                                         order.setState(document.get("state").toString());
                                         orders.add(order);
+                                        adapter.notifyDataSetChanged();
                                     }
                                 });
                             }

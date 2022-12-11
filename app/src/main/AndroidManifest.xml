@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Mealer"
         tools:targetApi="31">
         <activity
-            android:name=".orderedmealsClient"
+            android:name=".ClientOrderedList"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
