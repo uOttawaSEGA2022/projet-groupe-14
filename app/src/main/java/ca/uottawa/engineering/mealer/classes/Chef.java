@@ -69,6 +69,14 @@ public class Chef extends User {
         reviewCount++;
     }
 
+    public int getReviewTotal() {
+        return reviewTotal;
+    }
+
+    public int getReviewCount() {
+        return reviewCount;
+    }
+
     // Check if banned
     public boolean isSuspended() {
         return getSuspension().getTime() > new Date().getTime();
