@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".chefProfileinfo"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".chefProfileinfo">
 
     <ImageView
         android:id="@+id/imageView11"
@@ -15,8 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/chef"
-        />
+        app:srcCompat="@drawable/chef" />
 
     <TextView
         android:id="@+id/chefNameprofile"
@@ -34,11 +33,11 @@
         android:id="@+id/Rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="48dp"
         android:backgroundTint="@color/black"
         android:onClick="onRate"
-        android:text="Rate"
+        android:text="Rate out Of 5"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chefNameprofile" />
@@ -47,11 +46,11 @@
         android:id="@+id/Complaint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Complaint"
-        android:layout_marginLeft="50dp"
-        android:onClick="complain"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
         android:backgroundTint="@color/white"
-        android:layout_marginTop="50dp"
+        android:onClick="complain"
+        android:text="Add Complaint"
         android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/Rate"
         app:layout_constraintTop_toBottomOf="@+id/chefNameprofile" />
@@ -60,11 +59,26 @@
         android:id="@+id/RateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rating: ./5"
         android:fontFamily="@font/poppinssemibold"
+        android:text="Rating: ./5"
         android:textColor="@color/black"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/ratingSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="30dp"
+        android:fontFamily="@font/poppinssemibold"
+        android:spinnerMode="dropdown"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.316"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Rate" />
 </androidx.constraintlayout.widget.ConstraintLayout>

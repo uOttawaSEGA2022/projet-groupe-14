@@ -1,10 +1,11 @@
 package ca.uottawa.engineering.mealer;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ public class chefProfileinfo extends AppCompatActivity {
     private String chefName;
     private Chef chef;
     private DocumentReference chefRef;
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +43,24 @@ public class chefProfileinfo extends AppCompatActivity {
         getChefInfo();
 
         rateText = findViewById(R.id.RateText);
+        spinner = findViewById(R.id.ratingSpinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.ratings, android.R.layout.simple_spinner_item);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        spinner.setAdapter(adapter);
     }
 
     public void onRate(View view) {
-        Intent switchActivityIntent = new Intent(this, ClientRatingsActivity.class);
-        startActivity(switchActivityIntent);
+        int rating = Integer.parseInt(spinner.getSelectedItem().toString());
+        chef.addReview(rating);
+        chefRef.set(chef);
+
+        Context context = getApplicationContext();
+        CharSequence text = "Thank you for rating!";
+        int duration = Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 
     public void complain(View view) {
