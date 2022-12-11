@@ -1,6 +1,7 @@
 package ca.uottawa.engineering.mealer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -75,5 +76,9 @@ public class ClientMeal extends AppCompatActivity {
                     }
                 });
         onBackPressed();
+    }
+    public  void onClickProfile(View view){
+        Intent switchActivityIntent = new Intent(this, chefProfileinfo.class);
+        startActivity(switchActivityIntent);
     }
     }
