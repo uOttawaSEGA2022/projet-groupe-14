@@ -42,11 +42,25 @@ public class chefProfileinfo extends AppCompatActivity {
 
         rateText = findViewById(R.id.RateText);
     }
-    public  void onRate(View view){
+
+    public void onRate(View view) {
         Intent switchActivityIntent = new Intent(this, ClientRatingsActivity.class);
         startActivity(switchActivityIntent);
     }
-    public void getchef(){
+
+    public void complain(View view) {
+        ComplaintHandler complaintHandler = new ComplaintHandler();
+        complaintHandler.createComplaint(chefName, chefRef);
+
+        Context context = getApplicationContext();
+        CharSequence text = "Added complaint to chef!";
+        int duration = Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
+
+    public void getChefInfo() {
         db.collection("users")
                 .whereEqualTo("name", chefName)
                 .get()
