@@ -18,10 +18,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pricee" />
+        app:layout_constraintTop_toBottomOf="@+id/mealPrice" />
 
     <TextView
-        android:id="@+id/Name"
+        android:id="@+id/clientMealName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -31,10 +31,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+        app:layout_constraintTop_toBottomOf="@+id/chefReviews" />
 
     <TextView
-        android:id="@+id/Ingredien"
+        android:id="@+id/mealIngredients"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ingredients"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <TextView
-        android:id="@+id/allergie"
+        android:id="@+id/mealAllergies"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Allergies"
@@ -54,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
     <TextView
-        android:id="@+id/descriptionn"
+        android:id="@+id/mealDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="description of the meal"
@@ -64,7 +64,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <TextView
-        android:id="@+id/pricee"
+        android:id="@+id/mealPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Price"
@@ -74,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/chefReviews"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -98,7 +98,7 @@
         app:layout_constraintVertical_bias="0.061" />
 
     <TextView
-        android:id="@+id/Type"
+        android:id="@+id/mealType"
         android:layout_width="134dp"
         android:layout_height="21dp"
         android:text="type of cuisine"
@@ -127,7 +127,7 @@
         android:fontFamily="@font/poppinsregular"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Name" />
+        app:layout_constraintTop_toBottomOf="@+id/clientMealName" />
 
     <TextView
         android:id="@+id/textView16"
@@ -138,7 +138,7 @@
         android:textColor="@color/black"
         android:fontFamily="@font/poppinsregular"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionn" />
+        app:layout_constraintTop_toBottomOf="@+id/mealDescription" />
 
     <TextView
         android:id="@+id/textView24"
@@ -150,7 +150,7 @@
         android:fontFamily="@font/poppinsregular"
 
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Ingredien" />
+        app:layout_constraintTop_toBottomOf="@+id/mealIngredients" />
 
     <TextView
         android:id="@+id/textView25"
@@ -161,7 +161,7 @@
         android:textColor="@color/black"
         android:fontFamily="@font/poppinsregular"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Type" />
+        app:layout_constraintTop_toBottomOf="@+id/mealType" />
 
     <TextView
         android:id="@+id/textView26"
@@ -172,6 +172,6 @@
         android:textColor="@color/black"
         android:fontFamily="@font/poppinsregular"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/allergie" />
+        app:layout_constraintTop_toBottomOf="@+id/mealAllergies" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
