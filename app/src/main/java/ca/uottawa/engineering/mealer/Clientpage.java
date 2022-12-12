@@ -2,6 +2,7 @@ package ca.uottawa.engineering.mealer;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.SyncStateContract;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -25,7 +26,10 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 
 import ca.uottawa.engineering.mealer.adapter.CustomBaseAdapter;
+import ca.uottawa.engineering.mealer.classes.Chef;
 import ca.uottawa.engineering.mealer.classes.Meal;
+import ca.uottawa.engineering.mealer.helpers.ChefHandler;
+import ca.uottawa.engineering.mealer.helpers.ChefSingleton;
 
 public class Clientpage extends AppCompatActivity {
     ListView listview;
@@ -36,6 +40,10 @@ public class Clientpage extends AppCompatActivity {
 
     private ArrayList<Meal> meals = new ArrayList<>();
     private CustomBaseAdapter adapter;
+
+    private String chefName;
+    private Chef chef;
+    private  boolean issuspended;
 
     SearchView searchbar;
 
@@ -98,7 +106,11 @@ public class Clientpage extends AppCompatActivity {
                                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                                         Log.d(TAG, documentSnapshot.getId() + " => " + documentSnapshot.getData());
                                         Meal meal = documentSnapshot.toObject(Meal.class);
-                                         meals.add(meal);
+                                        chefName = meal.getChefName();
+                                        getChefInfo();
+                                        if(issuspended==false){
+                                            meals.add(meal);
+                                        }
                                         adapter.notifyDataSetChanged();
                                     }
                                 });
@@ -118,6 +130,32 @@ public class Clientpage extends AppCompatActivity {
     public  void Onordered(View view){
         Intent switchActivityIntent = new Intent(this, ClientOrderedList.class);
         startActivity(switchActivityIntent);
+    }
+
+    public void getChefInfo() {
+        db.collection("users")
+                .whereEqualTo("name", chefName)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            QuerySnapshot document = task.getResult();
+                            Log.d(TAG, document.getQuery().toString());
+                            for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                                Log.d(TAG, documentSnapshot.getId() + " => " + documentSnapshot.getData());
+                                chef = documentSnapshot.toObject(Chef.class);
+                                issuspended = chef.isSuspended();
+                                Log.d(TAG, String.valueOf(chef.isSuspended()));
+
+
+                            }
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+                });
     }
 
 }
