@@ -57,7 +57,9 @@ public class ChefOrderedList extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Order order = (Order) adapterView.getItemAtPosition(i);
+                Order order = orders.get(i);
+                Log.d(TAG, order.getMealName());
+
                 switch_page(order);
             }
         });
@@ -104,8 +106,8 @@ public class ChefOrderedList extends AppCompatActivity {
 
     private void switch_page(Order order) {
         // TODO: currently switching to wrong activity
-        Intent switchActivityIntent = new Intent(this, pruposedMealUi.class);
-        switchActivityIntent.putExtra("order", order);
+        Intent switchActivityIntent = new Intent(this, ChefMealStatus.class);
+        switchActivityIntent.putExtra("orderName", order.getMealName());
 
         startActivity(switchActivityIntent);
     }

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ClientMealStatusActivity">
+    tools:context=".ClientMealStatusActivity"
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/textView27"
@@ -20,10 +21,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView26"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+        app:layout_constraintTop_toBottomOf="@+id/Status" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/NameOfMeal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -46,7 +47,7 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toBottomOf="@+id/NameOfMeal" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -60,7 +61,7 @@
         app:srcCompat="@drawable/burger" />
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/Status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
@@ -72,7 +73,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toBottomOf="@+id/NameOfMeal" />
 
     <TextView
         android:id="@+id/textView26"

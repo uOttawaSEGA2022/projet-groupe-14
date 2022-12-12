@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChefMealStatus"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/MealName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MealName"
+        android:fontFamily="@font/poppinssemibold"
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Accept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:backgroundTint="@color/black"
+        android:onClick="OnState"
+        android:text="Accept order"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MealName" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

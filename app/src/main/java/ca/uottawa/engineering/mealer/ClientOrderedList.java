@@ -1,7 +1,10 @@
 package ca.uottawa.engineering.mealer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -49,6 +52,15 @@ public class ClientOrderedList extends AppCompatActivity {
 
         listView.setAdapter(adapter);
         listView.setClickable(true);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Order order = orders.get(i);
+                Log.d(TAG, order.getMealName());
+
+                switch_page(order);
+            }
+        });
 
     }
     @Override
@@ -87,5 +99,12 @@ public class ClientOrderedList extends AppCompatActivity {
                         }
                     }
                 });
+    }
+    private void switch_page(Order order) {
+        // TODO: currently switching to wrong activity
+        Intent switchActivityIntent = new Intent(this, ClientMealStatusActivity.class);
+        switchActivityIntent.putExtra("orderName", order.getMealName());
+
+        startActivity(switchActivityIntent);
     }
 }
