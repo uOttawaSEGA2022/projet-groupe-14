@@ -29,6 +29,7 @@ public class chefProfileinfo extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String TAG = "chef_profile";
     private String chefName;
+    private TextView chefprofilename;
     private Chef chef;
     private DocumentReference chefRef;
     private Spinner spinner;
@@ -48,6 +49,8 @@ public class chefProfileinfo extends AppCompatActivity {
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         spinner.setAdapter(adapter);
+
+        chefprofilename = (TextView) findViewById(R.id.cheffprofilename);
     }
 
     public void onRate(View view) {
@@ -89,6 +92,7 @@ public class chefProfileinfo extends AppCompatActivity {
                                 Log.d(TAG, documentSnapshot.getId() + " => " + documentSnapshot.getData());
                                 chef = documentSnapshot.toObject(Chef.class);
                                 chefRef = documentSnapshot.getReference();
+                                chefprofilename.setText(chef.getName());
 
                                 String rating;
                                 double ratingNumber = chef.getReview();
